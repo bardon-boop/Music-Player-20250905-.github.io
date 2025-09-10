@@ -1,5 +1,5 @@
 /* Final project: Music player
- -Author, Braedon Gitersos
+ -Author, Braedon G.
  -Date: 20260130
  */
 //
