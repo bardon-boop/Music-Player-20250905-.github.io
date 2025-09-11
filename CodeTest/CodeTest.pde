@@ -9,7 +9,6 @@ String name2 = "";
 void setup() {
   textSize(32);
   size(800, 400);
-<<<<<<< HEAD
 }
 
 void draw() {
