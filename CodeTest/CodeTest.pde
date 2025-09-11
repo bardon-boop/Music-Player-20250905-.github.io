@@ -12,6 +12,7 @@ void setup() {
 }
 
 void draw() {
+  rect(100, 75, 0, 0);
   background(200);
   textSize(32);
   text("Hello World! I am " + name + "!", 10, 50);
