@@ -22,36 +22,29 @@ void draw() {
   textSize(32);
   text("Hello World! I am " + name + "!", 10, 50);
   text("What is your name?", 10, 80);
-  if (input == true) {
+  //if (input == true) {
     text("hello " + name2 + "!", 10, 110);
   } else {
     text(name2, 10, 110);
   }
 }
-
-void keyPressed() {
-  if (key != SHIFT) {
-    if (input == false) {
-      if (key == ENTER) {
-        if (name2.length() > 0)
-          input = true;
-      } else if (key == BACKSPACE && name2.length() > 0) {
-        int currentTime = millis();
-        if (currentTime - lastBInput > backspaceInterval) {
-          name2 = name2.substring(0, name2.length() - 1);
-          lastBInput = currentTime;
-        }
-      } else {
-        if (input == false) {
-          name2 += key;
-        } else {
-          if (key == ENTER) {
-            input = false;
-            name2 = "";
-          }
-        }
-      }
+if (name2.length() > 0) {
+  input = true;
+} else if (key == BACKSPACE && name2.length() > 0) {
+  int currentTime = millis();
+  if (currentTime - lastBInput > backspaceInterval) {
+    name2 = name2.substring(0, name2.length() - 1);
+    lastBInput = currentTime;
+  } else {
+  if (input == false) {
+    name2 += key;
+  } else {
+    if (key == ENTER) {
+      input = false;
+      name2 = "";
     }
   }
+}
 
-  // text above is a personal project ig
+
+// text above is a personal project ig
