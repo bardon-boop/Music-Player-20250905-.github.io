@@ -2,26 +2,31 @@
  -Author, Braedon G.
  -Date: 20260130
  */
-//
+// Main objective for home: make sure to port everything to full scrren and define parameters as divisions of display height and width
+
+void setup() {
+  fullScreen();
+}
+
 boolean mousetouchlyrics = false;
 boolean lyricsdropped = false;
 boolean dropdown = false;
 int volume = 0;
-
-void setup() {
-  size(1500, 2000);
-}
+int appWidth = displayWidth;
+int appHeight = displayHeight;
 
 void draw() {
   background(0);
   textSize(32);
   noStroke();
   fill(100, 0, 0);
-  rect(939.5, 310, 50, 350, 70);
+  rect(appWidth * 1/2, 310, 50, 350, 70); // Volume bar
   fill(75, 0, 0);
-  ellipse(962.5, 625, 125, 125);
-  rect(75, 75, 750, 750);
-  fill (140, 0, 0);
+  ellipse(962.5, 625, 125, 125); // Volume icon or circle
+  rect(90, 90, 750, 750, 10); // Album cover shadow
+  fill(100, 0, 0);
+  rect(75, 75, 750, 750); // Album cover placeholder
+  fill (75, 0, 0);
   if (volume >= 1) {
     rect(944.5, 520, 40, 40);
     if (volume >= 2) {
@@ -32,6 +37,7 @@ void draw() {
           rect(944.5, 385, 40, 40);
           if (volume >= 5) {
             rect(944.5, 340, 40, 40);
+            // ^ squares suggesting volume level
           }
         }
       }
@@ -55,13 +61,14 @@ void draw() {
     fill(100, 0, 0);
   } else {
     fill(210, 0, 0);
-    triangle(1175, 190, 1100, 160, 1250, 160);
+    triangle(1175, 190, 1100, 160, 1250, 160); // dropdown triangle when lyrics hovered
   }
   if (dropdown == false) {
-    rect(900, 75, 550, 77, 20);
+    rect(900, 75, 550, 77, 10);
   } else {
-    rect(900, 75, 550, 750, 20);
+    rect(900, 75, 550, 750, 10);
   }
+  // ^ logic for creating lyrics box depnding on it being toggled or not
 }
 
 void mousePressed() {
