@@ -20,7 +20,8 @@ void draw() {
   textSize(32);
   noStroke();
   fill(100, 0, 0);
-  rect(appWidth * 1/2, 310, 50, 350, 70); // Volume bar
+  float rectX = appWidth * 1/3;
+  rect(rectX, 310, 50, 350, 70); // Volume bar
   fill(75, 0, 0);
   ellipse(962.5, 625, 125, 125); // Volume icon or circle
   rect(90, 90, 750, 750, 10); // Album cover shadow
