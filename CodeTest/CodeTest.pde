@@ -1,50 +1,91 @@
-int age = 0;
-int lastBInput;
-int backspaceInterval = 200;
-String name = "Braedon";
-boolean input = false;
-String name2 = "";
-
 void setup() {
-  textSize(32);
-  size(800, 400);
+  fullScreen();
+    int appWidth = displayWidth;
+    int appHeight = displayHeight;
+    float rectX = appWidth * 11/16;
+    float rectY = appHeight * 7/32;
 }
+
+boolean mousetouchlyrics = false;
+boolean lyricsdropped = false;
+boolean dropdown = false;
+int volume = 0;
+
 
 void draw() {
-  background(200);
-  if (mouseX >= 400 && mouseX <= 500 && mouseY >= 200 && mouseY <= 275) {
-    fill(0, 100, 0);
-  } else {
-    fill(0, 255, 0);
-  }
-  rect(400, 200, 100, 75);
-  fill(0, 0, 0);
+  background(0);
   textSize(32);
-  text("Hello World! I am " + name + "!", 10, 50);
-  text("What is your name?", 10, 80);
-  //if (input == true) {
-    text("hello " + name2 + "!", 10, 110);
-  } else {
-    text(name2, 10, 110);
+  noStroke();
+  fill(100, 0, 0);
+  rect(displayWidth * 11/16, displayHeight * 7/32, 50, 350, 70); // Volume bar
+  fill(75, 0, 0);
+  ellipse(962.5, 625, 125, 125); // Volume icon or circle
+  rect(90, 90, 750, 750, 10); // Album cover shadow
+  fill(100, 0, 0);
+  rect(75, 75, 750, 750); // Album cover placeholder
+  fill (75, 0, 0);
+  if (volume >= 1) {
+    rect(944.5, 520, 40, 40);
+    if (volume >= 2) {
+      rect(944.5, 475, 40, 40);
+      if (volume >= 3) {
+        rect(944.5, 430, 40, 40);
+        if (volume >= 4) {
+          rect(944.5, 385, 40, 40);
+          if (volume >= 5) {
+            rect(944.5, 340, 40, 40);
+            // ^ squares suggesting volume level
+          }
+        }
+      }
+    }
   }
+
+  if (mouseX >= 900 && mouseX <= 1450 && mouseY >= 75 && mouseY <= 152) {
+    mousetouchlyrics = true;
+  } else {
+    if (dropdown == false) {
+      mousetouchlyrics = false;
+    } else {
+      if (mouseX >= 900 && mouseX <= 1450 && mouseY >= 75 && mouseY <= 825) {
+        mousetouchlyrics = true;
+      } else {
+        mousetouchlyrics = false;
+      }
+    }
+  }
+  if (mousetouchlyrics == false) {
+    fill(100, 0, 0);
+  } else {
+    fill(210, 0, 0);
+    triangle(1175, 190, 1100, 160, 1250, 160); // dropdown triangle when lyrics hovered
+  }
+  if (dropdown == false) {
+    rect(900, 75, 550, 77, 10);
+  } else {
+    rect(900, 75, 550, 750, 10);
+  }
+  // ^ logic for creating lyrics box depnding on it being toggled or not
 }
-if (name2.length() > 0) {
-  input = true;
-} else if (key == BACKSPACE && name2.length() > 0) {
-  int currentTime = millis();
-  if (currentTime - lastBInput > backspaceInterval) {
-    name2 = name2.substring(0, name2.length() - 1);
-    lastBInput = currentTime;
+
+void mousePressed() {
+  if (dropdown == false) {
+    if (mouseX >= 900 && mouseX <= 1450 && mouseY >= 75 && mouseY <= 152) {
+      dropdown = true;
+    }
   } else {
-  if (input == false) {
-    name2 += key;
-  } else {
-    if (key == ENTER) {
-      input = false;
-      name2 = "";
+    if (mouseX >= 900 && mouseX <= 1450 && mouseY >= 75 && mouseY <= 825) {
+      dropdown = false;
     }
   }
 }
 
-
-// text above is a personal project ig
+void keyPressed() {
+  if (keyCode == UP) {
+    if (volume <= 4)
+      volume = volume + 1;
+  } else if (keyCode == DOWN) {
+    if (volume >= 1)
+      volume = volume - 1;
+  }
+}
