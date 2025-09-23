@@ -22,7 +22,7 @@ void draw() {
   ellipse(962.5, 625, 125, 125); // Volume icon or circle
   rect(90, 90, 750, 750, 10); // Album cover shadow
   fill(100, 0, 0);
-  rect(75, 75, 750, 750); // Album cover placeholder
+  rect(displayWidth * 1/6, displayHeight * 1/6, displayWidth * 1/3, (displayHeight * (displayWidth * 1/3)/ displayHeight)); // Album cover placeholder
   fill (75, 0, 0);
   if (volume >= 1) {
     rect(944.5, 520, 40, 40);
