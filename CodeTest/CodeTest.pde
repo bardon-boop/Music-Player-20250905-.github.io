@@ -17,9 +17,9 @@ void draw() {
   textSize(32);
   noStroke();
   fill(100, 0, 0);
-  rect(displayWidth * 11/16, displayHeight * 7/32, 50, 350, 70); // Volume bar
+  rect(displayWidth * 11/16 - displayWidth * 1/256, displayHeight * 7/32, (displayWidth * 1/64), displayHeight * 2/7, 70); // Volume bar
   fill(75, 0, 0);
-  ellipse(962.5, 625, 125, 125); // Volume icon or circle
+  ellipse((displayWidth * 11/16) + displayWidth * 1/256, (displayHeight * 4/9) + displayHeight * 1/64, displayWidth * 1/20, displayWidth * 1/20); // Volume icon or circle
   rect(displayWidth * 9/64, displayHeight * 9/64, displayWidth * 1/3, (displayHeight * (displayWidth * 1/3)/ displayHeight), 10); // Album cover shadow
   fill(100, 0, 0);
   rect(displayWidth * 1/8, displayHeight * 1/8, displayWidth * 1/3, (displayHeight * (displayWidth * 1/3)/ displayHeight)); // Album cover placeholder
@@ -41,7 +41,7 @@ void draw() {
     }
   }
 
-  if (mouseX >= 900 && mouseX <= 1450 && mouseY >= 75 && mouseY <= 152) {
+  if (mouseX >= displayWidth * 5/8 && mouseX <= displayWidth * 5/8 + displayWidth * 5/16 && mouseY >= displayHeight * 1/8 && mouseY <= displayHeight * 1/8 + displayHeight * 1/15) {
     mousetouchlyrics = true;
   } else {
     if (dropdown == false) {
@@ -58,10 +58,10 @@ void draw() {
     fill(100, 0, 0);
   } else {
     fill(210, 0, 0);
-    triangle(1175, 190, 1100, 160, 1250, 160); // dropdown triangle when lyrics hovered
+    triangle(displayWidth * 5/8 + (displayWidth * 5/32 - displayWidth * 1/32), displayHeight * 7/32, displayWidth * 5/8 + (displayWidth * 5/32 + displayWidth * 1/32), displayHeight * 7/32, displayWidth * 5/8 + displayWidth * 5/32, displayHeight * 1/4); // dropdown triangle when lyrics hovered
   }
   if (dropdown == false) {
-    rect(900, 75, 550, 77, 10);
+    rect(displayWidth * 5/8, displayHeight * 1/8, displayWidth * 5/16, displayHeight * 1/15, 10);
   } else {
     rect(900, 75, 550, 750, 10);
   }
@@ -70,7 +70,7 @@ void draw() {
 
 void mousePressed() {
   if (dropdown == false) {
-    if (mouseX >= 900 && mouseX <= 1450 && mouseY >= 75 && mouseY <= 152) {
+    if (mouseX >= displayWidth * 5/8 && mouseX <= displayWidth * 5/8 + displayWidth * 5/16 && mouseY >= displayHeight * 1/8 && mouseY <= displayHeight * 1/8 + displayHeight * 1/15) {
       dropdown = true;
     }
   } else {
