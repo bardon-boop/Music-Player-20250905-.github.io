@@ -20,9 +20,9 @@ void draw() {
   rect(displayWidth * 11/16, displayHeight * 7/32, 50, 350, 70); // Volume bar
   fill(75, 0, 0);
   ellipse(962.5, 625, 125, 125); // Volume icon or circle
-  rect(90, 90, 750, 750, 10); // Album cover shadow
+  rect(displayWidth * 9/64, displayHeight * 9/64, displayWidth * 1/3, (displayHeight * (displayWidth * 1/3)/ displayHeight), 10); // Album cover shadow
   fill(100, 0, 0);
-  rect(displayWidth * 1/6, displayHeight * 1/6, displayWidth * 1/3, (displayHeight * (displayWidth * 1/3)/ displayHeight)); // Album cover placeholder
+  rect(displayWidth * 1/8, displayHeight * 1/8, displayWidth * 1/3, (displayHeight * (displayWidth * 1/3)/ displayHeight)); // Album cover placeholder
   fill (75, 0, 0);
   if (volume >= 1) {
     rect(944.5, 520, 40, 40);
