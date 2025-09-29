@@ -25,15 +25,15 @@ void draw() {
   rect(displayWidth * 1/8, displayHeight * 1/8, displayWidth * 1/3, (displayHeight * (displayWidth * 1/3)/ displayHeight)); // Album cover placeholder
   fill (75, 0, 0);
   if (volume >= 1) {
-    rect(944.5, 520, 40, 40);
+    rect(displayWidth * 11/16 - displayWidth * 1/512, displayHeight * 2/7 + displayHeight * 7/32 - displayHeight * 1/8, displayWidth * 1/64 - displayWidth * 1/256, displayWidth * 1/64 - displayWidth * 1/256);
     if (volume >= 2) {
-      rect(944.5, 475, 40, 40);
+      rect(displayWidth * 11/16 - displayWidth * 1/512, displayHeight * 2/7 + displayHeight * 7/32 - displayHeight * 1/8 - (displayWidth * 1/64), displayWidth * 1/64 - displayWidth * 1/256, displayWidth * 1/64 - displayWidth * 1/256);
       if (volume >= 3) {
-        rect(944.5, 430, 40, 40);
+        rect(displayWidth * 11/16 - displayWidth * 1/512, displayHeight * 2/7 + displayHeight * 7/32 - displayHeight * 1/8 - 2 * (displayWidth * 1/64), displayWidth * 1/64 - displayWidth * 1/256, displayWidth * 1/64 - displayWidth * 1/256);
         if (volume >= 4) {
-          rect(944.5, 385, 40, 40);
+          rect(displayWidth * 11/16 - displayWidth * 1/512, displayHeight * 2/7 + displayHeight * 7/32 - displayHeight * 1/8 - 3 * (displayWidth * 1/64), displayWidth * 1/64 - displayWidth * 1/256, displayWidth * 1/64 - displayWidth * 1/256);
           if (volume >= 5) {
-            rect(944.5, 340, 40, 40);
+            rect(displayWidth * 11/16 - displayWidth * 1/512, displayHeight * 2/7 + displayHeight * 7/32 - displayHeight * 1/8 - 4 * (displayWidth * 1/64), displayWidth * 1/64 - displayWidth * 1/256, displayWidth * 1/64 - displayWidth * 1/256);
             // ^ squares suggesting volume level
           }
         }
@@ -47,7 +47,7 @@ void draw() {
     if (dropdown == false) {
       mousetouchlyrics = false;
     } else {
-      if (mouseX >= 900 && mouseX <= 1450 && mouseY >= 75 && mouseY <= 825) {
+      if (mouseX >= displayWidth * 5/8 && mouseX <= displayWidth * 5/8 + displayWidth * 5/16 && mouseY >= displayHeight * 1/8 && mouseY <= displayHeight * 1/8 + displayHeight * 1/2) {
         mousetouchlyrics = true;
       } else {
         mousetouchlyrics = false;
@@ -63,7 +63,7 @@ void draw() {
   if (dropdown == false) {
     rect(displayWidth * 5/8, displayHeight * 1/8, displayWidth * 5/16, displayHeight * 1/15, 10);
   } else {
-    rect(900, 75, 550, 750, 10);
+    rect(displayWidth * 5/8, displayHeight * 1/8, displayWidth * 5/16, displayHeight * 1/2, 10);
   }
   // ^ logic for creating lyrics box depnding on it being toggled or not
 }
@@ -74,7 +74,7 @@ void mousePressed() {
       dropdown = true;
     }
   } else {
-    if (mouseX >= 900 && mouseX <= 1450 && mouseY >= 75 && mouseY <= 825) {
+    if (mouseX >= displayWidth * 5/8 && mouseX <= displayWidth * 5/8 + displayWidth * 5/16 && mouseY >= displayHeight * 1/8 && mouseY <= displayHeight * 1/8 + displayHeight * 1/2) {
       dropdown = false;
     }
   }
