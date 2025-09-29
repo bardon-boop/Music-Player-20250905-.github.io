@@ -1,3 +1,4 @@
+/*
 void setup() {
   fullScreen();
     int appWidth = displayWidth;
@@ -89,3 +90,20 @@ void keyPressed() {
       volume = volume - 1;
   }
 }
+*/
+
+fullScreen();
+int screenHeight = displayWidth;
+int screenWidth = displayWidth;
+float ButtonX1 = screenWidth * 1/18;
+float ButtonY1 = screenWidth * 3/9;
+float ButtonWidth = screenWidth * 1/18;
+float playButtonX1 = screenWidth * 1/18 * 1/4
+
+square(ButtonX1, ButtonY1, ButtonWidth);
+square(ButtonX1 * 2, ButtonY1, ButtonWidth);
+square(ButtonX1 * 3, ButtonY1, ButtonWidth);
+square(ButtonX1 * 4, ButtonY1, ButtonWidth);
+square(ButtonX1 * 5, ButtonY1, ButtonWidth);
+
+triangle(
