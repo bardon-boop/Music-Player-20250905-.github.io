@@ -1,4 +1,4 @@
-/*
+
 void setup() {
   fullScreen();
     int appWidth = displayWidth;
@@ -90,15 +90,37 @@ void keyPressed() {
       volume = volume - 1;
   }
 }
-*/
-
+                                                                                                                                                                
+// below is my button code
+/*
 fullScreen();
 int screenHeight = displayWidth;
 int screenWidth = displayWidth;
 float ButtonX1 = screenWidth * 1/18;
 float ButtonY1 = screenWidth * 3/9;
 float ButtonWidth = screenWidth * 1/18;
-float playButtonX1 = screenWidth * 1/18 * 1/4
+float playButtonX13 = screenWidth * 1/18 + screenWidth * 1/18 * 1/4;
+float playButtonX2 = screenWidth * 1/18 + screenWidth * 1/18 * 3/4;
+float playButtonY1 = screenHeight * 3/9 + screenWidth * 1/18 * 1/4;
+float playButtonY2 = screenHeight * 3/9 + screenWidth * 1/18 * 1/2;
+float playButtonY3 = screenHeight * 3/9 + screenWidth * 1/18 * 3/4;
+float pause1ButtonX = 2 * (screenWidth * 1/18) + screenWidth * 1/18 * 1/4;
+float pause1ButtonY = (screenHeight * 3/9) + screenWidth * 1/18 * 1/4;
+float pause1ButtonWidth = screenWidth * 1/18 * 3/16;
+float pause1ButtonHeight = screenWidth * 1/18 * 1/2;
+float pause2ButtonX = 2 * (screenWidth * 1/18) + screenWidth * 1/18 * 9/16;
+float pause2ButtonY = (screenHeight * 3/9) + screenWidth * 1/18 * 1/4;
+float pause2ButtonWidth = screenWidth * 1/18 * 3/16;
+float pause2ButtonHeight = screenWidth * 1/18 * 1/2;
+float nextSongX13t = 3 * screenWidth * 1/18 + screenWidth * 1/18 * 1/4;
+float nextSongX2t = 3 * screenWidth * 1/18 + screenWidth * 1/18 * 1/2;
+float nextSongY1t = playButtonY1;
+float nextSongY2t = playButtonY2;
+float nextSongY3t = playButtonY3;
+float nextSongX = 3 * screenWidth * 1/18 + screenWidth * 1/18 * 9/16;
+float nextSongY = screenHeight * 3/9 + screenWidth * 1/18 * 1/4;
+float nextSongWid = screenWidth * 1/18 * 3/16;
+float nextSongHi = screenHeight * 1/18 * 1/2;
 
 square(ButtonX1, ButtonY1, ButtonWidth);
 square(ButtonX1 * 2, ButtonY1, ButtonWidth);
@@ -106,4 +128,9 @@ square(ButtonX1 * 3, ButtonY1, ButtonWidth);
 square(ButtonX1 * 4, ButtonY1, ButtonWidth);
 square(ButtonX1 * 5, ButtonY1, ButtonWidth);
 
-triangle(
+triangle(playButtonX13, playButtonY1, playButtonX2, playButtonY2, playButtonX13, playButtonY3);
+rect(pause1ButtonX, pause1ButtonY, pause1ButtonWidth, pause1ButtonHeight);
+rect(pause2ButtonX, pause2ButtonY, pause2ButtonWidth, pause2ButtonHeight);
+triangle(nextSongX13t, nextSongY1t, nextSongX2t, nextSongY2t, nextSongX13t, nextSongY3t);
+rect(nextSongX, nextSongY, nextSongWid, nextSongHi);
+*/
