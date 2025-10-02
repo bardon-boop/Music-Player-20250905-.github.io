@@ -95,7 +95,7 @@ void keyPressed() {
 /*
 fullScreen();
 int screenHeight = displayWidth;
-int screenWidth = displayWidth;
+int screenWidth = displayWidth;s
 float ButtonX1 = screenWidth * 1/18;
 float ButtonY1 = screenWidth * 3/9;
 float ButtonWidth = screenWidth * 1/18;
