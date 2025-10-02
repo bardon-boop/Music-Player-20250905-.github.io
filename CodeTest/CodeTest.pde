@@ -1,21 +1,14 @@
 // New ideas for program: Pulldown animation, try and integrate floats, import song?
-
 void setup() {
-  fullScreen();
-  int appWidth = displayWidth;
-  int appHeight = displayHeight;
-  float rectX = appWidth * 11/16;
-  float rectY = appHeight * 7/32;
+fullScreen();
 }
-int appWidth = displayWidth;
-float rea= appWidth = appWidth * 1/8
+
 float easeRate = 5;
 float aniHeight = displayHeight * 1/15;
 boolean mousetouchlyrics = false;
 boolean lyricsdropped = false;
 boolean dropdown = false;
 int volume = 0;
-
 
 void draw() {
   background(0);
