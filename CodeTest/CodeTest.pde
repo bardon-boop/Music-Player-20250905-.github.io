@@ -1,9 +1,10 @@
-// New ideas for program: Pulldown animation, try and integrate floats, import song?
+// New ideas for program: try and integrate floats, import song?
+/*
 void setup() {
 fullScreen();
 }
 
-float easeRate = 5;
+float easeRate = 4;
 float aniHeight = displayHeight * 1/15;
 boolean mousetouchlyrics = false;
 boolean lyricsdropped = false;
@@ -91,12 +92,12 @@ void keyPressed() {
       volume = volume - 1;
   }
 }
-
+*/
 // below is my button code
-/*
+
 fullScreen();
  int screenHeight = displayWidth;
- int screenWidth = displayWidth;s
+ int screenWidth = displayWidth;
  float ButtonX1 = screenWidth * 1/18;
  float ButtonY1 = screenWidth * 3/9;
  float ButtonWidth = screenWidth * 1/18;
@@ -122,6 +123,17 @@ fullScreen();
  float nextSongY = screenHeight * 3/9 + screenWidth * 1/18 * 1/4;
  float nextSongWid = screenWidth * 1/18 * 3/16;
  float nextSongHi = screenHeight * 1/18 * 1/2;
+ float lastSongX13t = 4 * screenWidth * 1/18 + screenWidth * 1/18 * 3/4;
+ float lastSongY1t = screenHeight * 3/9 + screenWidth * 1/18 * 1/4;
+ float lastSongX2t = 4 * screenWidth * 1/18 + screenWidth * 1/18 * 1/2;
+ float lastSongY2t = screenHeight * 3/9 + screenWidth * 1/18 * 1/2;
+ float lastSongY3t = screenHeight * 3/9 + screenWidth * 1/18 * 3/4;
+ float lastSongX = 4 * screenWidth * 1/18 + screenWidth * 1/18 * 1/4;
+ float lastSongY = screenHeight * 3/9 + screenWidth * 1/18 * 1/4;
+ float lastSongWid = screenWidth * 1/18 * 3/16;
+ float lastSongHi = screenHeight * 1/18 * 1/2;
+ 
+ 
  
  square(ButtonX1, ButtonY1, ButtonWidth);
  square(ButtonX1 * 2, ButtonY1, ButtonWidth);
@@ -134,4 +146,6 @@ fullScreen();
  rect(pause2ButtonX, pause2ButtonY, pause2ButtonWidth, pause2ButtonHeight);
  triangle(nextSongX13t, nextSongY1t, nextSongX2t, nextSongY2t, nextSongX13t, nextSongY3t);
  rect(nextSongX, nextSongY, nextSongWid, nextSongHi);
- */
+ triangle(lastSongX13t, lastSongY1t, lastSongX2t, lastSongY2t, lastSongX13t, lastSongY3t);
+ rect(lastSongX, lastSongY, lastSongWid, lastSongHi);
+ line();
