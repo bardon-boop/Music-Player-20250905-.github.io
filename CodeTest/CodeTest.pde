@@ -96,22 +96,22 @@ void keyPressed() {
 // below is my button code
 
 fullScreen();
- int screenHeight = displayWidth;
+ int screenHeight = displayHeight;
  int screenWidth = displayWidth;
  float ButtonX1 = screenWidth * 1/18;
- float ButtonY1 = screenWidth * 3/9;
+ float ButtonY1 = screenHeight * 15/18;
  float ButtonWidth = screenWidth * 1/18;
  float playButtonX13 = screenWidth * 1/18 + screenWidth * 1/18 * 1/4;
  float playButtonX2 = screenWidth * 1/18 + screenWidth * 1/18 * 3/4;
- float playButtonY1 = screenHeight * 3/9 + screenWidth * 1/18 * 1/4;
- float playButtonY2 = screenHeight * 3/9 + screenWidth * 1/18 * 1/2;
- float playButtonY3 = screenHeight * 3/9 + screenWidth * 1/18 * 3/4;
+ float playButtonY1 = screenHeight * 15/18 + screenWidth * 1/18 * 1/4;
+ float playButtonY2 = screenHeight * 15/18 + screenWidth * 1/18 * 1/2;
+ float playButtonY3 = screenHeight * 15/18 + screenWidth * 1/18 * 3/4;
  float pause1ButtonX = 2 * (screenWidth * 1/18) + screenWidth * 1/18 * 1/4;
- float pause1ButtonY = (screenHeight * 3/9) + screenWidth * 1/18 * 1/4;
+ float pause1ButtonY = (screenHeight * 15/18) + screenWidth * 1/18 * 1/4;
  float pause1ButtonWidth = screenWidth * 1/18 * 3/16;
  float pause1ButtonHeight = screenWidth * 1/18 * 1/2;
  float pause2ButtonX = 2 * (screenWidth * 1/18) + screenWidth * 1/18 * 9/16;
- float pause2ButtonY = (screenHeight * 3/9) + screenWidth * 1/18 * 1/4;
+ float pause2ButtonY = (screenHeight * 15/18) + screenWidth * 1/18 * 1/4;
  float pause2ButtonWidth = screenWidth * 1/18 * 3/16;
  float pause2ButtonHeight = screenWidth * 1/18 * 1/2;
  float nextSongX13t = 3 * screenWidth * 1/18 + screenWidth * 1/18 * 1/4;
@@ -120,18 +120,25 @@ fullScreen();
  float nextSongY2t = playButtonY2;
  float nextSongY3t = playButtonY3;
  float nextSongX = 3 * screenWidth * 1/18 + screenWidth * 1/18 * 9/16;
- float nextSongY = screenHeight * 3/9 + screenWidth * 1/18 * 1/4;
+ float nextSongY = screenHeight * 15/18 + screenWidth * 1/18 * 1/4;
  float nextSongWid = screenWidth * 1/18 * 3/16;
- float nextSongHi = screenHeight * 1/18 * 1/2;
+ float nextSongHi = screenWidth * 1/18 * 1/2;
  float lastSongX13t = 4 * screenWidth * 1/18 + screenWidth * 1/18 * 3/4;
- float lastSongY1t = screenHeight * 3/9 + screenWidth * 1/18 * 1/4;
+ float lastSongY1t = screenHeight * 15/18 + screenWidth * 1/18 * 1/4;
  float lastSongX2t = 4 * screenWidth * 1/18 + screenWidth * 1/18 * 1/2;
- float lastSongY2t = screenHeight * 3/9 + screenWidth * 1/18 * 1/2;
- float lastSongY3t = screenHeight * 3/9 + screenWidth * 1/18 * 3/4;
+ float lastSongY2t = screenHeight * 15/18 + screenWidth * 1/18 * 1/2;
+ float lastSongY3t = screenHeight * 15/18 + screenWidth * 1/18 * 3/4;
  float lastSongX = 4 * screenWidth * 1/18 + screenWidth * 1/18 * 1/4;
- float lastSongY = screenHeight * 3/9 + screenWidth * 1/18 * 1/4;
+ float lastSongY = screenHeight * 15/18 + screenWidth * 1/18 * 1/4;
  float lastSongWid = screenWidth * 1/18 * 3/16;
- float lastSongHi = screenHeight * 1/18 * 1/2;
+ float lastSongHi = screenWidth * 1/18 * 1/2;
+ float line1X = 5 * screenWidth * 1/18 + screenWidth * 1/18 * 1/4;
+ float line1Y = screenHeight * 15/18 + screenWidth * 1/18 * 5/8;
+ float line1Xp2 = 5 * screenWidth * 1/18 + screenWidth * 1/18 * 7/16;
+ float line1Yp2B = screenHeight * 15/18 + screenWidth * 1/18 * 5/8;
+ float line2Xp2B = 5 * screenWidth * 1/18 + screenWidth * 1/18 * 9/16;
+ float line2Yp2B = screenHeight * 15/18 + screenWidth * 1/18 * 3/8;
+ 
  
  
  
@@ -148,4 +155,5 @@ fullScreen();
  rect(nextSongX, nextSongY, nextSongWid, nextSongHi);
  triangle(lastSongX13t, lastSongY1t, lastSongX2t, lastSongY2t, lastSongX13t, lastSongY3t);
  rect(lastSongX, lastSongY, lastSongWid, lastSongHi);
- line();
+ line(line1X, line1Y, line1Xp2, line1Yp2B);
+ line(line1Xp2, line1Yp2B, line2Xp2B, line2Yp2B);
