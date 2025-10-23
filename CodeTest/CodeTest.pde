@@ -92,8 +92,8 @@ void keyPressed() {
       volume = volume - 1;
   }
 }
-*/
 // below is my button code
+*/
 
 fullScreen();
  int screenHeight = displayHeight;
@@ -134,10 +134,17 @@ fullScreen();
  float lastSongHi = screenWidth * 1/18 * 1/2;
  float line1X = 5 * screenWidth * 1/18 + screenWidth * 1/18 * 1/4;
  float line1Y = screenHeight * 15/18 + screenWidth * 1/18 * 5/8;
- float line1Xp2 = 5 * screenWidth * 1/18 + screenWidth * 1/18 * 7/16;
+ float line1Xp2B = 5 * screenWidth * 1/18 + screenWidth * 1/18 * 7/16;
  float line1Yp2B = screenHeight * 15/18 + screenWidth * 1/18 * 5/8;
  float line2Xp2B = 5 * screenWidth * 1/18 + screenWidth * 1/18 * 9/16;
  float line2Yp2B = screenHeight * 15/18 + screenWidth * 1/18 * 3/8;
+ float line3Xp2 = 5 * screenWidth * 1/18 + screenWidth * 1/18 * 5/8;
+ float line3Yp2 = screenHeight * 15/18 + screenWidth * 1/18 * 3/8;
+ float line4X = 5 * screenWidth * 1/18 + screenWidth * 1/18 * 1/4;
+ float line4Y = screenHeight * 15/18 + screenWidth * 1/18 * 3/8;
+ float line4Xp2B = 5 * screenWidth * 1/18 + screenWidth * 1/18 * 7/16;
+ float line4Yp2B = screenHeight * 15/18 + screenWidth * 1/18 * 3/8;
+ 
  
  
  
@@ -155,5 +162,7 @@ fullScreen();
  rect(nextSongX, nextSongY, nextSongWid, nextSongHi);
  triangle(lastSongX13t, lastSongY1t, lastSongX2t, lastSongY2t, lastSongX13t, lastSongY3t);
  rect(lastSongX, lastSongY, lastSongWid, lastSongHi);
- line(line1X, line1Y, line1Xp2, line1Yp2B);
- line(line1Xp2, line1Yp2B, line2Xp2B, line2Yp2B);
+ line(line1X, line1Y, line1Xp2B, line1Yp2B);
+ line(line1Xp2B, line1Yp2B, line2Xp2B, line2Yp2B);
+ line(line2Xp2B, line2Yp2B, line3Xp2, line3Yp2);
+ line(line4X, line4Y, line4Xp2B, line4Yp2B);
