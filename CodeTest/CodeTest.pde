@@ -1,9 +1,10 @@
 // New ideas for program: try and integrate floats, import song?
-/*
 void setup() {
 fullScreen();
 }
 
+int appHeight = displayHeight;
+int appWidth = displayWidth;
 float easeRate = 4;
 float aniHeight = displayHeight * 1/15;
 boolean mousetouchlyrics = false;
@@ -14,14 +15,30 @@ int volume = 0;
 void draw() {
   background(0);
   textSize(32);
+  stroke(100);
+  strokeWeight(7);
+  line(0, displayWidth * 1/18, displayWidth, displayWidth * 1/18);
   noStroke();
+  fill(12, 12, 12);
+  rect(0, 0, displayWidth, displayWidth * 1/18);
+  fill(100, 0, 0);
+  ellipse(displayWidth * 1/2, displayHeight * 13/20, displayWidth * 1/9, displayWidth * 1/9);
+  fill(0);
+  ellipse(displayWidth * 1/2, displayHeight * 13/20, displayWidth * 3/36, displayWidth * 3/36);
   fill(100, 0, 0);
   rect(displayWidth * 11/16 - displayWidth * 1/256, displayHeight * 7/32, (displayWidth * 1/64), displayHeight * 2/7, 70); // Volume bar
   fill(75, 0, 0);
   ellipse((displayWidth * 11/16) + displayWidth * 1/256, (displayHeight * 4/9) + displayHeight * 1/64, displayWidth * 1/20, displayWidth * 1/20); // Volume icon or circle
-  rect(displayWidth * 9/64, displayHeight * 9/64, displayWidth * 1/3, (displayHeight * (displayWidth * 1/3)/ displayHeight), 10); // Album cover shadow
+  rect(displayWidth * 9/64, displayHeight * 9/64, displayWidth * 5/18, displayWidth * 5/18, 10); // Album cover shadow
+  rect(displayWidth * 1/18, 0, displayWidth * 1/18, displayWidth * 1/18);
   fill(100, 0, 0);
-  rect(displayWidth * 1/8, displayHeight * 1/8, displayWidth * 1/3, (displayHeight * (displayWidth * 1/3)/ displayHeight)); // Album cover placeholder
+  rect(displayWidth * 1/8, displayHeight * 1/8, displayWidth * 5/18, displayWidth * 5/18); // Album cover placeholder
+  rect(displayWidth * 13/36 + 2, displayHeight * 15/18, displayWidth * 1/18, displayWidth * 1/18, 20);
+  rect(displayWidth * 15/36 + 1, displayHeight * 15/18, displayWidth * 1/18, displayWidth * 1/18, 20);
+  rect(displayWidth * 17/36, displayHeight * 15/18, displayWidth * 1/18, displayWidth * 1/18, 20);
+  rect(displayWidth * 19/36 - 1, displayHeight * 15/18, displayWidth * 1/18, displayWidth * 1/18, 20);
+  rect(displayWidth * 21/36 - 2, displayHeight * 15/18, displayWidth * 1/18, displayWidth * 1/18, 20);
+  rect(0, 0, displayWidth * 1/18, displayWidth * 1/18);
   fill (75, 0, 0);
   if (volume >= 1) {
     rect(displayWidth * 11/16 - displayWidth * 1/512, displayHeight * 2/7 + displayHeight * 7/32 - displayHeight * 1/8, displayWidth * 1/64 - displayWidth * 1/256, displayWidth * 1/64 - displayWidth * 1/256);
@@ -40,13 +57,13 @@ void draw() {
     }
   }
 
-  if (mouseX >= displayWidth * 5/8 && mouseX <= displayWidth * 5/8 + displayWidth * 5/16 && mouseY >= displayHeight * 1/8 && mouseY <= displayHeight * 1/8 + displayHeight * 1/15) {
+  if (mouseX >= displayWidth * 6/10 && mouseX <= displayWidth * 5/8 + displayWidth * 5/16 && mouseY >= displayHeight * 1/8 && mouseY <= displayHeight * 1/8 + displayHeight * 1/15) {
     mousetouchlyrics = true;
   } else {
     if (dropdown == false) {
       mousetouchlyrics = false;
     } else {
-      if (mouseX >= displayWidth * 5/8 && mouseX <= displayWidth * 5/8 + displayWidth * 5/16 && mouseY >= displayHeight * 1/8 && mouseY <= displayHeight * 1/8 + displayHeight * 1/2) {
+      if (mouseX >= displayWidth * 6/10 && mouseX <= displayWidth * 5/8 + displayWidth * 5/16 && mouseY >= displayHeight * 1/8 && mouseY <= displayHeight * 1/8 + displayHeight * 1/2) {
         mousetouchlyrics = true;
       } else {
         mousetouchlyrics = false;
@@ -58,26 +75,26 @@ void draw() {
   } else {
     fill(210, 0, 0);
     if (aniHeight <= displayHeight * 1/15 + 1) {
-      triangle(displayWidth * 5/8 + (displayWidth * 5/32 - displayWidth * 1/32), displayHeight * 7/32, displayWidth * 5/8 + (displayWidth * 5/32 + displayWidth * 1/32), displayHeight * 7/32, displayWidth * 5/8 + displayWidth * 5/32, displayHeight * 1/4); // dropdown triangle when lyrics hovered
+      triangle(displayWidth * 6/10 + (displayWidth * 5/32 - displayWidth * 1/32), displayHeight * 7/32, displayWidth * 6/10 + (displayWidth * 5/32 + displayWidth * 1/32), displayHeight * 7/32, displayWidth * 6/10 + displayWidth * 5/32, displayHeight * 1/4); // dropdown triangle when lyrics hovered
     }
   }
   if (dropdown == false) {
     aniHeight += (displayHeight * 1/15 - aniHeight)/ easeRate;
-    rect(displayWidth * 5/8, displayHeight * 1/8, displayWidth * 5/16, aniHeight, 10);
+    rect(displayWidth * 6/10, displayHeight * 1/8, displayWidth * 5/16, aniHeight, 10);
   } else {
     aniHeight += (displayHeight * 0.5 - aniHeight)/ easeRate;
-    rect(displayWidth * 5/8, displayHeight * 1/8, displayWidth * 5/16, aniHeight, 10);
+    rect(displayWidth * 6/10, displayHeight * 1/8, displayWidth * 5/16, aniHeight, 10);
   }
   // ^ logic for creating lyrics box depnding on it being toggled or not
 }
 
 void mousePressed() {
   if (dropdown == false) {
-    if (mouseX >= displayWidth * 5/8 && mouseX <= displayWidth * 5/8 + displayWidth * 5/16 && mouseY >= displayHeight * 1/8 && mouseY <= displayHeight * 1/8 + displayHeight * 1/15) {
+    if (mouseX >= displayWidth * 6/10 && mouseX <= displayWidth * 5/8 + displayWidth * 5/16 && mouseY >= displayHeight * 1/8 && mouseY <= displayHeight * 1/8 + displayHeight * 1/15) {
       dropdown = true;
     }
   } else {
-    if (mouseX >= displayWidth * 5/8 && mouseX <= displayWidth * 5/8 + displayWidth * 5/16 && mouseY >= displayHeight * 1/8 && mouseY <= displayHeight * 1/8 + displayHeight * 1/2) {
+    if (mouseX >= displayWidth * 6/10 && mouseX <= displayWidth * 5/8 + displayWidth * 5/16 && mouseY >= displayHeight * 1/8 && mouseY <= displayHeight * 1/8 + displayHeight * 1/2) {
       dropdown = false;
     }
   }
@@ -92,10 +109,16 @@ void keyPressed() {
       volume = volume - 1;
   }
 }
-// below is my button code
-*/
 
+
+
+
+
+
+// below is my button code
+/*
 fullScreen();
+// Key for general float characteristics: t = float is a variable related to a triangle, B = float variable is used as an intersecting point between lines (Bridge), p# = the secondary coordinate points for a line, Hi = height, Wid = width
  int screenHeight = displayHeight;
  int screenWidth = displayWidth;
  float ButtonX1 = screenWidth * 1/18;
@@ -144,6 +167,18 @@ fullScreen();
  float line4Y = screenHeight * 15/18 + screenWidth * 1/18 * 3/8;
  float line4Xp2B = 5 * screenWidth * 1/18 + screenWidth * 1/18 * 7/16;
  float line4Yp2B = screenHeight * 15/18 + screenWidth * 1/18 * 3/8;
+ float line5Xp2B = 5 * screenWidth * 1/18 + screenWidth * 9/16 * 1/18;
+ float line5Yp2B = screenHeight * 15/18 + screenWidth * 1/18 * 5/8;
+ float line6Xp2 = 5 * screenWidth * 1/18 + screenWidth * 1/18 * 5/8;
+ float line6Yp2 = screenHeight * 15/18 + screenWidth * 1/18 * 5/8;
+ float shuffleX1245t = screenWidth * 5/18 + screenWidth * 1/18 * 5/8;
+ float shuffleY1t = screenHeight * 15/18 + screenWidth * 1/18 * 5/16;
+ float shuffleY2t = screenHeight * 15/18 + screenWidth * 1/18 * 7/16;
+ float shuffleX36t = screenWidth * 5/18 + screenWidth * 1/18 * 11/16;
+ float shuffleY3t = screenHeight * 15/18 + screenWidth * 1/18 * 3/8;
+ float shuffleY4t = screenHeight * 15/18 + screenWidth * 1/18 * 9/16;
+ float shuffleY5t = screenHeight * 15/18 + screenWidth * 1/18 * 11/16;
+ float shuffleY6t = screenHeight * 15/18 + screenWidth * 1/18 * 5/8;
  
  
  
@@ -166,3 +201,8 @@ fullScreen();
  line(line1Xp2B, line1Yp2B, line2Xp2B, line2Yp2B);
  line(line2Xp2B, line2Yp2B, line3Xp2, line3Yp2);
  line(line4X, line4Y, line4Xp2B, line4Yp2B);
+ line(line4Xp2B, line4Yp2B, line5Xp2B, line5Yp2B);
+ line(line5Xp2B, line5Yp2B, line6Xp2, line6Yp2);
+ triangle(shuffleX1245t, shuffleY1t, shuffleX1245t, shuffleY2t, shuffleX36t, shuffleY3t);
+ triangle(shuffleX1245t, shuffleY4t, shuffleX1245t, shuffleY5t, shuffleX36t, shuffleY6t);
+ */
