@@ -1,4 +1,5 @@
 // New ideas for program: try and integrate floats, import song?
+
 void setup() {
 fullScreen();
 }
@@ -20,8 +21,12 @@ void draw() {
   line(0, displayWidth * 1/18, displayWidth, displayWidth * 1/18);
   noStroke();
   fill(12, 12, 12);
-  rect(0, 0, displayWidth, displayWidth * 1/18);
-  fill(100, 0, 0);
+  rect(0, 0, displayWidth, displayWidth * 1/18); // first menu button
+  fill(30);
+  rect(0, 0, displayWidth * 1/18, displayWidth * 1/18); // second menu button
+  fill(25);
+  rect(displayWidth * 1/18, 0, displayWidth * 1/18, displayWidth * 1/18);
+  fill(100, 0, 0); // Next 3 lines define music duration ring
   ellipse(displayWidth * 1/2, displayHeight * 13/20, displayWidth * 1/9, displayWidth * 1/9);
   fill(0);
   ellipse(displayWidth * 1/2, displayHeight * 13/20, displayWidth * 3/36, displayWidth * 3/36);
@@ -30,7 +35,6 @@ void draw() {
   fill(75, 0, 0);
   ellipse((displayWidth * 11/16) + displayWidth * 1/256, (displayHeight * 4/9) + displayHeight * 1/64, displayWidth * 1/20, displayWidth * 1/20); // Volume icon or circle
   rect(displayWidth * 9/64, displayHeight * 9/64, displayWidth * 5/18, displayWidth * 5/18, 10); // Album cover shadow
-  rect(displayWidth * 1/18, 0, displayWidth * 1/18, displayWidth * 1/18);
   fill(100, 0, 0);
   rect(displayWidth * 1/8, displayHeight * 1/8, displayWidth * 5/18, displayWidth * 5/18); // Album cover placeholder
   rect(displayWidth * 13/36 + 2, displayHeight * 15/18, displayWidth * 1/18, displayWidth * 1/18, 20);
@@ -38,7 +42,7 @@ void draw() {
   rect(displayWidth * 17/36, displayHeight * 15/18, displayWidth * 1/18, displayWidth * 1/18, 20);
   rect(displayWidth * 19/36 - 1, displayHeight * 15/18, displayWidth * 1/18, displayWidth * 1/18, 20);
   rect(displayWidth * 21/36 - 2, displayHeight * 15/18, displayWidth * 1/18, displayWidth * 1/18, 20);
-  rect(0, 0, displayWidth * 1/18, displayWidth * 1/18);
+  // rectangles above are the future music control buttons
   fill (75, 0, 0);
   if (volume >= 1) {
     rect(displayWidth * 11/16 - displayWidth * 1/512, displayHeight * 2/7 + displayHeight * 7/32 - displayHeight * 1/8, displayWidth * 1/64 - displayWidth * 1/256, displayWidth * 1/64 - displayWidth * 1/256);
