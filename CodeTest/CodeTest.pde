@@ -16,16 +16,16 @@ int volume = 0;
 void draw() {
   background(0);
   textSize(32);
-  stroke(100);
+  stroke(80);
   strokeWeight(7);
   line(0, displayWidth * 1/18, displayWidth, displayWidth * 1/18);
   noStroke();
   fill(12, 12, 12);
-  rect(0, 0, displayWidth, displayWidth * 1/18); // first menu button
+  rect(0, 0, displayWidth, displayWidth * 1/18); 
   fill(30);
-  rect(0, 0, displayWidth * 1/18, displayWidth * 1/18); // second menu button
+  rect(0, 0, displayWidth * 1/18, displayWidth * 1/18); // first menu button
   fill(25);
-  rect(displayWidth * 1/18, 0, displayWidth * 1/18, displayWidth * 1/18);
+  rect(displayWidth * 1/18, 0, displayWidth * 1/18, displayWidth * 1/18); // second menu button
   fill(100, 0, 0); // Next 3 lines define music duration ring
   ellipse(displayWidth * 1/2, displayHeight * 13/20, displayWidth * 1/9, displayWidth * 1/9);
   fill(0);
@@ -61,13 +61,13 @@ void draw() {
     }
   }
 
-  if (mouseX >= displayWidth * 6/10 && mouseX <= displayWidth * 5/8 + displayWidth * 5/16 && mouseY >= displayHeight * 1/8 && mouseY <= displayHeight * 1/8 + displayHeight * 1/15) {
+  if (mouseX >= displayWidth * 6/10 && mouseX <= displayWidth * 6/10 + displayWidth * 5/16 && mouseY >= displayHeight * 1/8 && mouseY <= displayHeight * 1/8 + displayHeight * 1/15) {
     mousetouchlyrics = true;
   } else {
     if (dropdown == false) {
       mousetouchlyrics = false;
     } else {
-      if (mouseX >= displayWidth * 6/10 && mouseX <= displayWidth * 5/8 + displayWidth * 5/16 && mouseY >= displayHeight * 1/8 && mouseY <= displayHeight * 1/8 + displayHeight * 1/2) {
+      if (mouseX >= displayWidth * 6/10 && mouseX <= displayWidth * 6/10 + displayWidth * 5/16 && mouseY >= displayHeight * 1/8 && mouseY <= displayHeight * 1/8 + displayHeight * 1/2) {
         mousetouchlyrics = true;
       } else {
         mousetouchlyrics = false;
