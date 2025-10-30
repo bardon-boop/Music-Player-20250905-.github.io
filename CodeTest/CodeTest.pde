@@ -4,6 +4,8 @@ void setup() {
 fullScreen();
 }
 
+String artistName = "";
+String songName = "";
 int appHeight = displayHeight;
 int appWidth = displayWidth;
 float easeRate = 4;
@@ -12,7 +14,7 @@ boolean mousetouchlyrics = false;
 boolean lyricsdropped = false;
 boolean dropdown = false;
 int volume = 0;
-
+  
 void draw() {
   background(0);
   textSize(32);
@@ -37,6 +39,11 @@ void draw() {
   rect(displayWidth * 9/64, displayHeight * 9/64, displayWidth * 5/18, displayWidth * 5/18, 10); // Album cover shadow
   fill(100, 0, 0);
   rect(displayWidth * 1/8, displayHeight * 1/8, displayWidth * 5/18, displayWidth * 5/18); // Album cover placeholder
+  textSize(50);
+  text("Song Title", displayWidth * 1/8, displayHeight * 11/16);
+  textSize(27);
+  text("Artist Name", displayWidth * 1/8, displayHeight * 23/32);
+  
   rect(displayWidth * 13/36 + 2, displayHeight * 15/18, displayWidth * 1/18, displayWidth * 1/18, 20);
   rect(displayWidth * 15/36 + 1, displayHeight * 15/18, displayWidth * 1/18, displayWidth * 1/18, 20);
   rect(displayWidth * 17/36, displayHeight * 15/18, displayWidth * 1/18, displayWidth * 1/18, 20);
