@@ -1,11 +1,11 @@
-// New ideas for program: try and integrate floats, import song?
-
+// New ideas for program:
+/*
 void setup() {
 fullScreen();
 }
 
-String artistName = "";
-String songName = "";
+String artistName = "Placeholder";
+String songName = "Placeholder";
 int appHeight = displayHeight;
 int appWidth = displayWidth;
 float easeRate = 4;
@@ -31,7 +31,7 @@ void draw() {
   fill(100, 0, 0); // Next 3 lines define music duration ring
   ellipse(displayWidth * 1/2, displayHeight * 13/20, displayWidth * 1/9, displayWidth * 1/9);
   fill(0);
-  ellipse(displayWidth * 1/2, displayHeight * 13/20, displayWidth * 3/36, displayWidth * 3/36);
+  ellipse(displayWidth * 1/2, displayHeight * 13/20, displayWidth * 7/72, displayWidth * 7/72);
   fill(100, 0, 0);
   rect(displayWidth * 11/16 - displayWidth * 1/256, displayHeight * 7/32, (displayWidth * 1/64), displayHeight * 2/7, 70); // Volume bar
   fill(75, 0, 0);
@@ -40,9 +40,9 @@ void draw() {
   fill(100, 0, 0);
   rect(displayWidth * 1/8, displayHeight * 1/8, displayWidth * 5/18, displayWidth * 5/18); // Album cover placeholder
   textSize(50);
-  text("Song Title", displayWidth * 1/8, displayHeight * 11/16);
+  text(songName, displayWidth * 1/8, displayHeight * 11/16);
   textSize(27);
-  text("Artist Name", displayWidth * 1/8, displayHeight * 23/32);
+  text(artistName, displayWidth * 1/8, displayHeight * 23/32);
   
   rect(displayWidth * 13/36 + 2, displayHeight * 15/18, displayWidth * 1/18, displayWidth * 1/18, 20);
   rect(displayWidth * 15/36 + 1, displayHeight * 15/18, displayWidth * 1/18, displayWidth * 1/18, 20);
@@ -120,14 +120,14 @@ void keyPressed() {
       volume = volume - 1;
   }
 }
-
+*/
 
 
 
 
 
 // below is my button code
-/*
+
 fullScreen();
 // Key for general float characteristics: t = float is a variable related to a triangle, B = float variable is used as an intersecting point between lines (Bridge), p# = the secondary coordinate points for a line, Hi = height, Wid = width
  int screenHeight = displayHeight;
@@ -216,4 +216,3 @@ fullScreen();
  line(line5Xp2B, line5Yp2B, line6Xp2, line6Yp2);
  triangle(shuffleX1245t, shuffleY1t, shuffleX1245t, shuffleY2t, shuffleX36t, shuffleY3t);
  triangle(shuffleX1245t, shuffleY4t, shuffleX1245t, shuffleY5t, shuffleX36t, shuffleY6t);
- */
