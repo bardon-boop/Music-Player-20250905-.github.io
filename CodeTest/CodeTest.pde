@@ -1,4 +1,6 @@
-// New ideas for program:
+// NOTE FOR MR.MERCER (PLEASE READ): If you contrast planned divisions to ones defined in my actual ui, they are very obviously different.
+// This is due to a lack of foresight on my end on the actual space taken up by each square, and thus, changes had to be made to make the UI better suited for the screen given.
+// Hope you understand this discrepancy, if not, please e-mail me or talk with me in class about finding a solution.
 /*
 void setup() {
 fullScreen();
