@@ -287,8 +287,8 @@ fullScreen();
  rect(rectX, rectY, rectW, rectH);
 //triangle(playButtonX13, playButtonY1, playButtonX2, playButtonY2, playButtonX13, playButtonY3); //Play button
 
-//rect(pause1ButtonX, pause1ButtonY, pause1ButtonWidth, pause1ButtonHeight); //Pause button
-//rect(pause2ButtonX, pause2ButtonY, pause2ButtonWidth, pause2ButtonHeight); //Pause button
+rect(pause1ButtonX, pause1ButtonY, pause1ButtonWidth, pause1ButtonHeight); //Pause button
+rect(pause2ButtonX, pause2ButtonY, pause2ButtonWidth, pause2ButtonHeight); //Pause button
 
 //triangle(nextSongX13t, nextSongY1t, nextSongX2t, nextSongY2t, nextSongX13t, nextSongY3t); //next song button
 //rect(nextSongX, nextSongY, nextSongWid, nextSongHi); //next song button
