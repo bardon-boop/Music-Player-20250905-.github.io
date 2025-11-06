@@ -3,7 +3,9 @@
 // Hope you understand this discrepancy, if not, please e-mail me or talk with me in class about finding a solution.
 
 void setup() {
+  
 fullScreen();
+
 }
 
 String artistName = "Placeholder";
