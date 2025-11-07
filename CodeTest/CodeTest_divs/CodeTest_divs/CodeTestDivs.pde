@@ -1,7 +1,7 @@
 // NOTE FOR MR.MERCER (PLEASE READ): If you contrast planned divisions to ones defined in my actual ui, they are very obviously different.
 // This is due to a lack of foresight on my end on the actual space taken up by each square, and thus, changes had to be made to make the UI better suited for the screen given.
 // Hope you understand this discrepancy, if not, please e-mail me or talk with me in class about finding a solution.
-// D = Diameter, SB = Soft Bezel, c = Variable is conncected to multiple shapes
+// D = Diameter, SB = Soft Bezel, t = Defines a triangle
 void setup() {
 fullScreen();
 String artistName = "Placeholder";
@@ -85,18 +85,27 @@ float volumeNotchX2 = appWidth * 11/16 - appWidth * 1/512;
 float volumeNotchX3 = appWidth * 11/16 - appWidth * 1/512;
 float volumeNotchX4 = appWidth * 11/16 - appWidth * 1/512;
 float volumeNotchX5 = appWidth * 11/16 - appWidth * 1/512;
-float volumeNotchY1 = appHeight * 2/7 + appHeight * 4/32;
+float volumeNotchY1 = appHeight * 2/7 + appHeight * 3/32;
 float volumeNotchY2 = appHeight * 2/7 + appHeight * 3/32 - appWidth * 1/64;
-float volumeNotchY3 = appHeight * 2/7 + appHeight * 3/32 * appWidth * 1/64;
-float volumeNotchY4 = appHeight * 2/7 + appHeight * 4/32 - 3 * appWidth * 1/64;
-float volumeNotchY5 = appHeight * 2/7 + appHeight * 4/32 - 4 * appWidth * 1/64;
+float volumeNotchY3 = appHeight * 2/7 + appHeight * 3/32 - 2 * appWidth * 1/64;
+float volumeNotchY4 = appHeight * 2/7 + appHeight * 3/32 - 3 * appWidth * 1/64;
+float volumeNotchY5 = appHeight * 2/7 + appHeight * 3/32 - 4 * appWidth * 1/64;
 float volumeNotchWH1 = appWidth * 1/64 - appWidth * 1/256;
 float volumeNotchWH2 = appWidth * 1/64 - appWidth * 1/256;
 float volumeNotchWH3 = appWidth * 1/64 - appWidth * 1/256;
 float volumeNotchWH4 = appWidth * 1/64 - appWidth * 1/256;
 float volumeNotchWH5 = appWidth * 1/64 - appWidth * 1/256;
-
-
+float dropArrowX1t = appWidth * 6/10 + appWidth * 4/32;
+float dropArrowX2t = appWidth * 6/10 + appWidth * 6/32;
+float dropArrowX3t = appWidth * 6/10 + appWidth * 5/32;
+float dropArrowY1t = appHeight * 7/32;
+float dropArrowY2t = appHeight * 7/32;
+float dropArrowY3t = appHeight * 1/4;
+float lyricBoxX = appWidth * 6/10;
+float lyricBoxY = appHeight * 1/8;
+float lyricBoxW = appWidth * 5/16;
+float lyricBoxH = appHeight * 1/15;
+float SBlb = 10;
 
 background(0);
   textSize(32);
@@ -141,9 +150,9 @@ background(0);
             // ^ squares suggesting volume level
 
 fill(100, 0, 0);
-      triangle(displayWidth * 6/10 + (displayWidth * 5/32 - displayWidth * 1/32), displayHeight * 7/32, displayWidth * 6/10 + (displayWidth * 5/32 + displayWidth * 1/32), displayHeight * 7/32, displayWidth * 6/10 + displayWidth * 5/32, displayHeight * 1/4); // dropdown triangle when lyrics hovered
+      triangle(dropArrowX1t, dropArrowY1t, dropArrowX2t, dropArrowY2t, dropArrowX3t, dropArrowY3t); // dropdown triangle when lyrics hovered
 
- rect(displayWidth * 6/10, displayHeight * 1/8, displayWidth * 5/16, displayHeight * 1/15, 10);
+ rect(lyricBoxX, lyricBoxY, lyricBoxW, lyricBoxH, SBlb);
   
 }
 
