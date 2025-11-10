@@ -31,11 +31,6 @@
   float volumeCirY = appHeight * 4/9 + appHeight * 1/64 - appWidth * 1/40;
   float volumeCirXD = appWidth * 1/20;
   float volumeCirYD = appWidth * 1/20;
-  float albumSX = appWidth * 9/64;
-  float albumSY = appHeight * 9/64;
-  float albumSW = appWidth * 5/18;
-  float albumSH = appWidth * 5/18;
-  float SBas = 10;
   float albumCX = appWidth * 1/8;
   float albumCY = appHeight * 1/8;
   float albumCW = appWidth * 5/18;
@@ -108,7 +103,6 @@
   rect(outRingX, outRingY, outRingXD, outRingYD); // Music Duration Ring
   rect(volumeBarX, volumeBarY, volumeBarW, volumeBarH, SBvb); // Volume bar
   rect(volumeCirX, volumeCirY, volumeCirXD, volumeCirYD); // Volume icon or circle
-  rect(albumSX, albumSY, albumSW, albumSH, SBas); // Album cover shadow
   rect(albumCX, albumCY, albumCW, albumCH); // Album cover placeholder
   rect(txtSX, txtSY, txtSW, txtSH);
   rect(txtAX, txtAY, txtAW, txtAH);
