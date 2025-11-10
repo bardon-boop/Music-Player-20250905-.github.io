@@ -2,16 +2,10 @@
 // This is due to a lack of foresight on my end on the actual space taken up by each square, and thus, changes had to be made to make the UI better suited for the screen given.
 // Hope you understand this discrepancy, if not, please e-mail me or talk with me in class about finding a solution.
 // D = Diameter, SB = Soft Bezel, t = Defines a triangle
-void setup() {
+
   fullScreen();
-  String artistName = "Placeholder";
-  String songName = "Placeholder";
   int appHeight = displayHeight;
   int appWidth = displayWidth;
-  float homeIslandX1 = 0;
-  float homeIslandY1 = appWidth * 1/18;
-  float homeIslandX2 = appWidth;
-  float homeIslandY2 = appWidth * 1/18;
   float homeBGX = 0;
   float homeBGY = 0;
   float homeBGW = appWidth;
@@ -24,21 +18,17 @@ void setup() {
   float homeButton2Y = 0;
   float homeButton2W = appWidth * 1/18;
   float homeButton2H = appWidth * 1/18;
-  float outRingX = appWidth * 1/2;
-  float outRingY = appHeight * 13/20;
-  float inRingX = appWidth * 1/2;
-  float inRingY = appHeight * 13/20;
+  float outRingX = appWidth * 1/2 - appWidth * 1/18;
+  float outRingY = appHeight * 13/20 - appWidth * 1/18;
   float outRingXD = appWidth * 1/9;
   float outRingYD = appWidth * 1/9;
-  float inRingXD = appWidth * 7/72;
-  float inRingYD = appWidth * 7/72;
   float volumeBarX = appWidth * 11/16 - appWidth * 1/256;
   float volumeBarY = appHeight * 7/32;
   float volumeBarW = appWidth * 1/64;
   float volumeBarH = appHeight * 2/7;
   float SBvb = 70;
-  float volumeCirX = appWidth * 11/16 + appWidth * 1/256;
-  float volumeCirY = appHeight * 4/9 + appHeight * 1/64;
+  float volumeCirX = appWidth * 11/16 + appWidth * 1/256 - appWidth * 1/40;
+  float volumeCirY = appHeight * 4/9 + appHeight * 1/64 - appWidth * 1/40;
   float volumeCirXD = appWidth * 1/20;
   float volumeCirYD = appWidth * 1/20;
   float albumSX = appWidth * 9/64;
@@ -50,10 +40,14 @@ void setup() {
   float albumCY = appHeight * 1/8;
   float albumCW = appWidth * 5/18;
   float albumCH = appWidth * 5/18;
-  float lineSX = appWidth * 1/8;
-  float lineSY = appHeight * 11/16;
-  float lineAX = appWidth * 1/8;
-  float lineAY = appHeight * 23/32;
+  float txtSX = appWidth * 1/8;
+  float txtSY = appHeight * 11/16;
+  float txtSW = appWidth * 1/9;
+  float txtSH = appHeight * 1/18;
+  float txtAX = appWidth * 1/8;
+  float txtAY = appHeight * 3/4;
+  float txtAW = appWidth * 1/10;
+  float txtAH = appHeight * 1/20;
   float SBSoundCon1 = 20;
   float SBSoundCon2 = 20;
   float SBSoundCon3 = 20;
@@ -106,34 +100,18 @@ void setup() {
   float lyricBoxW = appWidth * 5/16;
   float lyricBoxH = appHeight * 1/15;
   float SBlb = 10;
-
-  background(0);
-  textSize(32);
-  stroke(80);
-  strokeWeight(7);
-  line(homeIslandX1, homeIslandY1, homeIslandX2, homeIslandY2);
-  noStroke();
-  fill(12, 12, 12);
+  
+  
   rect(homeBGX, homeBGY, homeBGW, homeBGH);
-  fill(30);
   rect(homeButtonX, homeButtonY, homeButtonW, homeButtonH); // first menu button
-  fill(25);
   rect(homeButton2X, homeButton2Y, homeButton2W, homeButton2H); // second menu button
-  fill(100, 0, 0); // Next 3 lines define music duration ring
-  ellipse(outRingX, outRingY, outRingXD, outRingYD);
-  fill(0);
-  ellipse(inRingX, inRingY, inRingXD, inRingYD);
-  fill(100, 0, 0);
+  rect(outRingX, outRingY, outRingXD, outRingYD); // Music Duration Ring
   rect(volumeBarX, volumeBarY, volumeBarW, volumeBarH, SBvb); // Volume bar
-  fill(75, 0, 0);
-  ellipse(volumeCirX, volumeCirY, volumeCirXD, volumeCirYD); // Volume icon or circle
+  rect(volumeCirX, volumeCirY, volumeCirXD, volumeCirYD); // Volume icon or circle
   rect(albumSX, albumSY, albumSW, albumSH, SBas); // Album cover shadow
-  fill(100, 0, 0);
   rect(albumCX, albumCY, albumCW, albumCH); // Album cover placeholder
-  textSize(50);
-  text(songName, lineSX, lineSY);
-  textSize(27);
-  text(artistName, lineAX, lineAY);
+  rect(txtSX, txtSY, txtSW, txtSH);
+  rect(txtAX, txtAY, txtAW, txtAH);
 
   rect(soundConX1, soundConY1, soundConW1, soundConH1, SBSoundCon1);
   rect(soundConX2, soundConY2, soundConW2, soundConH2, SBSoundCon2);
@@ -141,7 +119,6 @@ void setup() {
   rect(soundConX4, soundConY4, soundConW4, soundConH4, SBSoundCon4);
   rect(soundConX5, soundConY5, soundConW5, soundConH5, SBSoundCon5);
   // rectangles above are the future music control buttons
-  fill (75, 0, 0);
   square(volumeNotchX1, volumeNotchY1, volumeNotchWH1);
   square(volumeNotchX2, volumeNotchY2, volumeNotchWH2);
   square(volumeNotchX3, volumeNotchY3, volumeNotchWH3);
@@ -149,11 +126,10 @@ void setup() {
   square(volumeNotchX5, volumeNotchY5, volumeNotchWH5);
   // ^ squares suggesting volume level
 
-  fill(100, 0, 0);
   triangle(dropArrowX1t, dropArrowY1t, dropArrowX2t, dropArrowY2t, dropArrowX3t, dropArrowY3t); // dropdown triangle when lyrics hovered
 
   rect(lyricBoxX, lyricBoxY, lyricBoxW, lyricBoxH, SBlb);
-}
+
 
 
 
