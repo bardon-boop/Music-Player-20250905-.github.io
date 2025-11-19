@@ -1,7 +1,7 @@
 // NOTE FOR MR.MERCER (PLEASE READ): If you contrast planned divisions to ones defined in my actual ui, they are very obviously different.
 // This is due to a lack of foresight on my end on the actual space taken up by each square, and thus, changes had to be made to make the UI better suited for the screen given.
 // Hope you understand this discrepancy, if not, please e-mail me or talk with me in class about finding a solution.
-/*
+
 void setup() {
 fullScreen();
 }
@@ -122,14 +122,14 @@ void keyPressed() {
       volume = volume - 1;
   }
 }
-*/
+
 
 
 
 
 
 // below is my button code
-
+/*
 fullScreen();
 // Key for general float characteristics: t = float is a variable related to a triangle, B = float variable is used as an intersecting point between lines (Bridge), p# = the secondary coordinate points for a line, Hi = height, Wid = width
  int screenHeight = displayHeight;
@@ -218,7 +218,7 @@ fullScreen();
  line(line5Xp2B, line5Yp2B, line6Xp2, line6Yp2);
  triangle(shuffleX1245t, shuffleY1t, shuffleX1245t, shuffleY2t, shuffleX36t, shuffleY3t);
  triangle(shuffleX1245t, shuffleY4t, shuffleX1245t, shuffleY5t, shuffleX36t, shuffleY6t);
-
+*/
  // Library is below
  /*
  fullScreen();
