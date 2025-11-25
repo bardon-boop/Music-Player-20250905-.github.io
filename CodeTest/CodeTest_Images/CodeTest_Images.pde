@@ -1,6 +1,6 @@
 /* Aspect Ratio: Bike only Demonstration
-- Rainbow
-*/
+ - Rainbow
+ */
 //
 //Display
 fullScreen(); //Landscape
@@ -13,10 +13,10 @@ println("Display VARS:", "\tscreenWidth:" + screenWidth, "screenHeight:" + scree
 float imageRectX = screenWidth * 1/8;
 float imageRectY = screenHeight * 1/8;
 float imageRectWidth = screenWidth * 5/18;
-float imageRectHeight = screenWidth * 5/18;
+float imageRectHeight = screenWidth * 5/18; //** Make smaller to test Landscape
 //
 //Image Aspect Ratio Vars & Algorithm
-//Directory or Pathway
+//Directory or Pathway, Concatenation
 String upArrow = "../../";
 String rainbowFolder = "Picture Dependancy Folder/Images/";
 String rainbow = "Rainbow";
@@ -28,9 +28,24 @@ PImage imageR = loadImage(imagePathwayR);
 int imageWidthR = 626; //Hardcoded
 int imageHeightR = 351; //Hardcoded
 //Aspect Ratio
-float imageRAspectRatio_LessOne = ( imageWidthR >= imageHeightR ) ? imageHeightR/imageWidthR : imageWidthR/imageHeightR ; //Ternary Operator
-// Hard CodedLesser-Than-One Aspect Ratio
-println(imageRAspectRatio_LessOne);
+float imageRAspectRatio_LesserOne = ( imageWidthR >= imageHeightR ) ? float(imageHeightR)/float(imageWidthR) : float(imageHeightR)/float(imageWidthR) ; //Ternary Operator
+// Hard Coded Lesser-Than-One Aspect Ratio
+//How to make imgae bigger or smaller
+//ERROR: truncating, casting
+println("Aspect Ratio <1", imageRAspectRatio_LesserOne, "Testing for decimals, formula", imageHeightR/imageWidthR);
+//Algorithm Decisions (choice)
+//Aspect Ratio
+/*
+imageRectHeight
+imageRectWidth
+imageWidthR
+imageHeightR
+if () {
+} else {
+} //end IF Aspect Ratio
+*/
+
+
 //DIV
 rect(imageRectX, imageRectY, imageRectWidth, imageRectHeight);
 //
