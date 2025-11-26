@@ -32,7 +32,7 @@ float imageRAspectRatio_LesserOne = ( imageWidthR >= imageHeightR ) ? float(imag
 // Hard Coded Lesser-Than-One Aspect Ratio
 //How to make imgae bigger or smaller
 //ERROR: truncating, casting
-println("Aspect Ratio <1", imageRAspectRatio_LesserOne, "Testing for decimals, formula", imageHeightR/imageWidthR);
+println("Aspect Ratio <1", imageRAspectRatio_LesserOne, "Testing for decimals, formula", float(imageHeightR)/float(imageWidthR));
 //Algorithm Decisions (choice)
 //Aspect Ratio
 /*
@@ -44,10 +44,16 @@ if () {
 } else {
 } //end IF Aspect Ratio
 */
+float imageWidthAdapt = imageRectWidth;
+float imageHeightAdapt = ( imageWidthR >= imageRectWidth ) ? imageWidthAdapt * imageRAspectRatio_LesserOne : imageWidthAdapt / imageRAspectRatio_LesserOne ; //Ternary Operator
+if (imageHeightAdapt>imageRectHeight) {
+println("Image does not fit within the parameters of the division frame, Program end ... Issue must be resolved... Image failed to appear");
+exit();
+}
 
 
 //DIV
 rect(imageRectX, imageRectY, imageRectWidth, imageRectHeight);
 //
-image( imageR, imageRectX, imageRectY, imageRectWidth, imageRectHeight);
-//image( imageR, imageRectX, imageRectY, imageWidthAdapt, imageHeightAdapt);
+//image( imageR, imageRectX, imageRectY, imageRectWidth, imageRectHeight);
+image( imageR, imageRectX, imageRectY, imageWidthAdapt, imageHeightAdapt);
