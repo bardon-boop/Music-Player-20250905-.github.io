@@ -24,9 +24,14 @@ String rainbowFileExtJPG = ".jpg";
 String imagePathwayR = upArrow + rainbowFolder + rainbow + rainbowFileExtJPG;
 //println("Rainbow Pathway: " + imagePathwayR);
 //Image Loading & Aspect Ratio
+PImage errorMessage = loadImage("errorImage.png");
 PImage imageR = loadImage(imagePathwayR);
+if (imageR == null) {
+  println("Null Pointer Exception ... Program failed to operate due to invalid pathway ... Resolve issue immediately");
+  imageR = errorMessage;
+}
 int imageWidthR = 626; //Hardcoded
-int imageHeightR = 351; //Hardcoded
+int imageHeightR = 351; //Hardcoded 
 //Aspect Ratio
 float imageRAspectRatio_LesserOne = ( imageWidthR >= imageHeightR ) ? float(imageHeightR)/float(imageWidthR) : float(imageHeightR)/float(imageWidthR) ; //Ternary Operator
 // Hard Coded Lesser-Than-One Aspect Ratio
@@ -48,7 +53,10 @@ float imageWidthAdapt = imageRectWidth;
 float imageHeightAdapt = ( imageWidthR >= imageRectWidth ) ? imageWidthAdapt * imageRAspectRatio_LesserOne : imageWidthAdapt / imageRAspectRatio_LesserOne ; //Ternary Operator
 if (imageHeightAdapt>imageRectHeight) {
 println("Image does not fit within the parameters of the division frame, Program end ... Issue must be resolved... Image failed to appear");
-exit();
+while ( imageHeightAdapt>imageRectHeight ) {
+  imageWidthAdapt *= 0.99;
+  imageHeightAdapt = imageWidthAdapt * imageRAspectRatio_LesserOne;
+}
 }
 
 
