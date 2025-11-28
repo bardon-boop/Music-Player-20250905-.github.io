@@ -31,7 +31,7 @@ if (imageR == null) {
   imageR = errorMessage;
 }
 int imageWidthR = 626; //Hardcoded
-int imageHeightR = 351; //Hardcoded 
+int imageHeightR = 351; //Hardcoded
 //Aspect Ratio
 float imageRAspectRatio_LesserOne = ( imageWidthR >= imageHeightR ) ? float(imageHeightR)/float(imageWidthR) : float(imageHeightR)/float(imageWidthR) ; //Ternary Operator
 // Hard Coded Lesser-Than-One Aspect Ratio
@@ -42,21 +42,34 @@ println("Aspect Ratio <1", imageRAspectRatio_LesserOne, "Testing for decimals, f
 //Aspect Ratio
 /*
 imageRectHeight
-imageRectWidth
-imageWidthR
-imageHeightR
-if () {
-} else {
-} //end IF Aspect Ratio
-*/
+ imageRectWidth
+ imageWidthR
+ imageHeightR
+ if () {
+ } else {
+ } //end IF Aspect Ratio
+ */
 float imageWidthAdapt = imageRectWidth;
 float imageHeightAdapt = ( imageWidthR >= imageRectWidth ) ? imageWidthAdapt * imageRAspectRatio_LesserOne : imageWidthAdapt / imageRAspectRatio_LesserOne ; //Ternary Operator
 if (imageHeightAdapt>imageRectHeight) {
-println("Image does not fit within the parameters of the division frame, Program end ... Issue must be resolved... Image failed to appear");
-while ( imageHeightAdapt>imageRectHeight ) {
-  imageWidthAdapt *= 0.99;
-  imageHeightAdapt = imageWidthAdapt * imageRAspectRatio_LesserOne;
-}
+  println("Image does not fit within the parameters of the division frame, Program end ... Issue must be resolved... Image failed to appear");
+  int timesRan = 0; //Local Variable to IF-Statement
+  //** WHILE Loops can run indefinitely with an error if not controlled, ensure that as a while loop is performed, it approaches the satisfacation of its condition
+  while ( imageHeightAdapt>imageRectHeight ) {
+    println("Iterations of divsion correction program:", timesRan++);
+    if ( timesRan < 10000 ) {
+    // Checking Image Size
+    } else {
+      //ERROR: Infinite Loop
+      println("WHILE condition is not being satisfied, resolve image correction program");
+      exit(); //doesn't work, must force WHILE Stop
+      imageHeightAdapt = imageRectHeight;
+    } //End Check Infinite Loop
+    imageWidthAdapt *= 0.81; // -= 1;
+    imageHeightAdapt = imageWidthAdapt * imageRAspectRatio_LesserOne;
+    println("Image size % decrease recorded:", imageWidthAdapt, imageHeightAdapt, imageHeightR);
+  }
+  imageHeightAdapt += imageRectHeight - imageHeightAdapt;
 }
 
 
