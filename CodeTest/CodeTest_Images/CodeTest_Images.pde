@@ -12,7 +12,7 @@ println("Display VARS:", "\tscreenWidth:" + screenWidth, "screenHeight:" + scree
 //Population
 float imageRectX = screenWidth * 1/8;
 float imageRectY = screenHeight * 1/8;
-float imageRectWidth = screenWidth * 5/18;
+float imageRectWidth = screenWidth * 5/18; //5/18
 float imageRectHeight = screenWidth * 5/18; //** Make smaller to test Landscape
 //
 //Image Aspect Ratio Vars & Algorithm
@@ -31,7 +31,7 @@ if (imageR == null) {
   imageR = errorMessage;
 }
 int imageWidthR = 626; //Hardcoded
-int imageHeightR = 351; //Hardcoded
+int imageHeightR = 351; //Hardcoded 351
 //Aspect Ratio
 float imageRAspectRatio_LesserOne = ( imageWidthR >= imageHeightR ) ? float(imageHeightR)/float(imageWidthR) : float(imageHeightR)/float(imageWidthR) ; //Ternary Operator
 // Hard Coded Lesser-Than-One Aspect Ratio
@@ -58,7 +58,7 @@ if (imageHeightAdapt>imageRectHeight) {
   while ( imageHeightAdapt>imageRectHeight ) {
     println("Iterations of divsion correction program:", timesRan++);
     if ( timesRan < 10000 ) {
-    // Checking Image Size
+      // Checking Image Size
     } else {
       //ERROR: Infinite Loop
       println("WHILE condition is not being satisfied, resolve image correction program");
@@ -69,12 +69,22 @@ if (imageHeightAdapt>imageRectHeight) {
     imageHeightAdapt = imageWidthAdapt * imageRAspectRatio_LesserOne;
     println("Image size % decrease recorded:", imageWidthAdapt, imageHeightAdapt, imageHeightR);
   }
+  if (imageRectHeight < imageRectWidth) {
   imageHeightAdapt += imageRectHeight - imageHeightAdapt;
+  } else {
+    imageWidthAdapt += imageRectWidth - imageWidthAdapt;
+  }
 }
-
-
+//Ternary Operator for Centering an Image With Aspect Ratio
+float centerAdjustment = (imageWidthAdapt > imageHeightAdapt) ? float(1)/float(2) * (imageRectHeight-imageHeightAdapt) : float(1)/float(2) * (imageRectWidth-imageWidthAdapt);
+println("Centre Factor, " + centerAdjustment); // VAR Check
+//
 //DIV
 rect(imageRectX, imageRectY, imageRectWidth, imageRectHeight);
 //
 //image( imageR, imageRectX, imageRectY, imageRectWidth, imageRectHeight);
-image( imageR, imageRectX, imageRectY, imageWidthAdapt, imageHeightAdapt);
+if (imageWidthAdapt > imageHeightAdapt) {
+  image( imageR, imageRectX, imageRectY + centerAdjustment, imageWidthAdapt, imageHeightAdapt); //For centring on the y-axis
+} else {
+  image( imageR, imageRectX  + centerAdjustment, imageRectY, imageWidthAdapt, imageHeightAdapt); //For centring on the x-axis
+}
