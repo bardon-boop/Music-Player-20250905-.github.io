@@ -1,4 +1,4 @@
-/* Aspect Ratio: Bike only Demonstration
+/* Aspect Ratio: Rainbow only
  - Rainbow
  */
 //
