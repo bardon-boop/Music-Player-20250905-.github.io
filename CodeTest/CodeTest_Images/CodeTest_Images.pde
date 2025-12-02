@@ -76,14 +76,14 @@ if (imageHeightAdapt>imageRectHeight) {
   }
 }
 //Ternary Operator for Centering an Image With Aspect Ratio
-float centerAdjustment = (imageWidthAdapt > imageHeightAdapt) ? float(1)/float(2) * (imageRectHeight-imageHeightAdapt) : float(1)/float(2) * (imageRectWidth-imageWidthAdapt);
+float centerAdjustment = (imageRectHeight-imageHeightAdapt > 0) ? float(1)/float(2) * (imageRectHeight-imageHeightAdapt) : float(1)/float(2) * (imageRectWidth-imageWidthAdapt);
 println("Centre Factor, " + centerAdjustment); // VAR Check
 //
 //DIV
 rect(imageRectX, imageRectY, imageRectWidth, imageRectHeight);
 //
 //image( imageR, imageRectX, imageRectY, imageRectWidth, imageRectHeight);
-if (imageWidthAdapt > imageHeightAdapt) {
+if (imageRectHeight-imageHeightAdapt > 0) {
   image( imageR, imageRectX, imageRectY + centerAdjustment, imageWidthAdapt, imageHeightAdapt); //For centring on the y-axis
 } else {
   image( imageR, imageRectX  + centerAdjustment, imageRectY, imageWidthAdapt, imageHeightAdapt); //For centring on the x-axis
