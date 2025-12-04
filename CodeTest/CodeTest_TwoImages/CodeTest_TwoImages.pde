@@ -1,4 +1,4 @@
-/* Aspect Ratio: Rainbow only
+/* Aspect Ratio: Rainbow and New image
  - Rainbow
  */
 //
@@ -13,15 +13,22 @@ println("Display VARS:", "\tscreenWidth:" + screenWidth, "screenHeight:" + scree
 float imageRectX = screenWidth * 1/8;
 float imageRectY = screenHeight * 1/8;
 float imageRectWidth = screenWidth * 5/18; //5/18
-float imageRectHeight = screenWidth * 1/9; //** Make smaller to test Landscape
+float imageRectHeight = screenWidth * 5/18; //** Make smaller to test Landscape
 //
 //Image Aspect Ratio Vars & Algorithm
+int amountOfImages = 2;
+int x = 0;
+/*
+x = 0, Rainbow | x = 1, Connor Mcdavid
+*/
 //Directory or Pathway, Concatenation
 String upArrow = "../../";
 String rainbowFolder = "Picture Dependancy Folder/Images/";
-String rainbow = "Rainbow";
+String[] imageName = new String[amountOfImages];
+imageName[0] = "Rainbow";
+imageName[1] = "Mcdavo";
 String rainbowFileExtJPG = ".jpg";
-String imagePathwayR = upArrow + rainbowFolder + rainbow + rainbowFileExtJPG;
+String imagePathwayR = upArrow + rainbowFolder + rainbow + rainbowFileExtJPG; // Resolve names at home ASAP
 //println("Rainbow Pathway: " + imagePathwayR);
 //Image Loading & Aspect Ratio
 PImage errorMessage = loadImage("errorImage.png");
@@ -58,20 +65,19 @@ if (imageHeightAdapt>imageRectHeight) {
   while ( imageHeightAdapt>imageRectHeight ) {
     println("Iterations of divsion correction program:", timesRan++);
     if ( timesRan < 10000 ) {
-    // Checking Image Size
-    imageWidthAdapt *= 0.81; // -= 1;
-    imageHeightAdapt = imageWidthAdapt * imageRAspectRatio_LesserOne;
-    println("Image size % decrease recorded:", imageWidthAdapt, imageHeightAdapt, imageHeightR);
+      // Checking Image Size
+      imageWidthAdapt *= 0.81; // -= 1;
+      imageHeightAdapt = imageWidthAdapt * imageRAspectRatio_LesserOne;
+      println("Image size % decrease recorded:", imageWidthAdapt, imageHeightAdapt, imageHeightR);
     } else {
       //ERROR: Infinite Loop
       println("WHILE condition is not being satisfied, resolve image correction program");
       exit(); //doesn't work, must force WHILE Stop
       imageHeightAdapt = imageRectHeight;
     } //End Check Infinite Loop
-
   }
   if (imageRectHeight < imageRectWidth) {
-  imageHeightAdapt += imageRectHeight - imageHeightAdapt;
+    imageHeightAdapt += imageRectHeight - imageHeightAdapt;
   } else {
     imageWidthAdapt += imageRectWidth - imageWidthAdapt;
   }
