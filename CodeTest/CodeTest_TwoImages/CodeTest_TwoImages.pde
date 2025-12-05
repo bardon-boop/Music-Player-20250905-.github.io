@@ -17,9 +17,9 @@ float imageRectHeight = screenWidth * 5/18; //** Make smaller to test Landscape
 //
 //Image Aspect Ratio Vars & Algorithm
 int amountOfImages = 2;
-int x = 0;
+int x = 0; //Index
 /*
-x = 0, Rainbow | x = 1, Connor Mcdavid
+x = 0, Rainbow | x = 1, Hockey Player
 */
 //Directory or Pathway, Concatenation
 String upArrow = "../../";
