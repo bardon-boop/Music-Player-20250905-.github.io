@@ -23,28 +23,36 @@ x = 0, Rainbow | x = 1, Connor Mcdavid
 */
 //Directory or Pathway, Concatenation
 String upArrow = "../../";
-String rainbowFolder = "Picture Dependancy Folder/Images/";
+String imageDestination = "Picture Dependancy Folder/Images/";
 String[] imageName = new String[amountOfImages];
 imageName[0] = "Rainbow";
-imageName[1] = "Mcdavo";
-String rainbowFileExtJPG = ".jpg";
-String imagePathwayR = upArrow + rainbowFolder + rainbow + rainbowFileExtJPG; // Resolve names at home ASAP
+imageName[1] = "HockeyGuy";
+String[] fileExtDes = new String[amountOfImages];
+fileExtDes[0] = ".jpg";
+fileExtDes[1] = ".jpg";
+String[] imageLocation = new String[amountOfImages];
+imageLocation[x] = upArrow + imageDestination + imageName[x] + fileExtDes[x];
 //println("Rainbow Pathway: " + imagePathwayR);
 //Image Loading & Aspect Ratio
 PImage errorMessage = loadImage("errorImage.png");
-PImage imageR = loadImage(imagePathwayR);
-if (imageR == null) {
+PImage[] imageSelected = new PImage[amountOfImages];
+imageSelected[x] = loadImage(imageLocation[x]);
+if (imageSelected[x] == null) {
   println("Null Pointer Exception ... Program failed to operate due to invalid pathway ... Resolve issue immediately");
-  imageR = errorMessage;
+  imageSelected[x] = errorMessage;
 }
-int imageWidthR = 626; //Hardcoded
-int imageHeightR = 351; //Hardcoded 351
+int[] imageWidthP = new int[amountOfImages];
+imageWidthP[0] = 626; //Hardcoded
+imageWidthP[1] = 640; //Hardcoded
+int[] imageHeightP = new int[amountOfImages];
+imageHeightP[0] = 351; //Hardcoded
+imageHeightP[1] = 497; //Hardcoded
 //Aspect Ratio
-float imageRAspectRatio_LesserOne = ( imageWidthR >= imageHeightR ) ? float(imageHeightR)/float(imageWidthR) : float(imageHeightR)/float(imageWidthR) ; //Ternary Operator
+float imageRAspectRatio_LesserOne = ( imageWidthP[x] >= imageHeightP[x] ) ? float(imageHeightP[x])/float(imageWidthP[x]) : float(imageHeightP[x])/float(imageWidthP[x]) ; //Ternary Operator
 // Hard Coded Lesser-Than-One Aspect Ratio
 //How to make imgae bigger or smaller
 //ERROR: truncating, casting
-println("Aspect Ratio <1", imageRAspectRatio_LesserOne, "Testing for decimals, formula", float(imageHeightR)/float(imageWidthR));
+println("Aspect Ratio <1", imageRAspectRatio_LesserOne, "Testing for decimals, formula", float(imageHeightP[x])/float(imageWidthP[x]));
 //Algorithm Decisions (choice)
 //Aspect Ratio
 /*
@@ -57,7 +65,7 @@ imageRectHeight
  } //end IF Aspect Ratio
  */
 float imageWidthAdapt = imageRectWidth;
-float imageHeightAdapt = ( imageWidthR >= imageRectWidth ) ? imageWidthAdapt * imageRAspectRatio_LesserOne : imageWidthAdapt / imageRAspectRatio_LesserOne ; //Ternary Operator
+float imageHeightAdapt = ( imageWidthP[x] >= imageRectWidth ) ? imageWidthAdapt * imageRAspectRatio_LesserOne : imageWidthAdapt / imageRAspectRatio_LesserOne ; //Ternary Operator
 if (imageHeightAdapt>imageRectHeight) {
   println("Image does not fit within the parameters of the division frame, Program end ... Issue must be resolved... Image failed to appear");
   int timesRan = 0; //Local Variable to IF-Statement
@@ -68,7 +76,7 @@ if (imageHeightAdapt>imageRectHeight) {
       // Checking Image Size
       imageWidthAdapt *= 0.81; // -= 1;
       imageHeightAdapt = imageWidthAdapt * imageRAspectRatio_LesserOne;
-      println("Image size % decrease recorded:", imageWidthAdapt, imageHeightAdapt, imageHeightR);
+      println("Image size % decrease recorded:", imageWidthAdapt, imageHeightAdapt, imageHeightP[x]);
     } else {
       //ERROR: Infinite Loop
       println("WHILE condition is not being satisfied, resolve image correction program");
@@ -91,7 +99,7 @@ rect(imageRectX, imageRectY, imageRectWidth, imageRectHeight);
 //
 //image( imageR, imageRectX, imageRectY, imageRectWidth, imageRectHeight);
 if (imageRectHeight-imageHeightAdapt > 0) {
-  image( imageR, imageRectX, imageRectY + centerAdjustment, imageWidthAdapt, imageHeightAdapt); //For centring on the y-axis
+  image( imageSelected[x], imageRectX, imageRectY + centerAdjustment, imageWidthAdapt, imageHeightAdapt); //For centring on the y-axis
 } else {
-  image( imageR, imageRectX  + centerAdjustment, imageRectY, imageWidthAdapt, imageHeightAdapt); //For centring on the x-axis
+  image( imageSelected[x], imageRectX  + centerAdjustment, imageRectY, imageWidthAdapt, imageHeightAdapt); //For centring on the x-axis
 }
