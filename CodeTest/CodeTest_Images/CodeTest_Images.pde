@@ -5,8 +5,8 @@
 //Display
 fullScreen(); //Landscape
 //size(500, 750); //Portrait
-int screenWidth = displayWidth; //width
-int screenHeight = displayHeight; //height
+int screenWidth = width; //width
+int screenHeight = height; //height
 println("Display VARS:", "\tscreenWidth:" + screenWidth, "screenHeight:" + screenHeight, "\n\t\tFullscreen, displayWidth:" + displayWidth, "displayHeight:" + displayHeight, "\n\t\tsize, width:" + width, "height:" + height);
 //
 //Population
