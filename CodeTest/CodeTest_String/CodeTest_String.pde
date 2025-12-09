@@ -12,7 +12,7 @@ println("Display VARS:", "\tscreenWidth:" + screenWidth, "screenHeight:" + scree
 float stringLocX = screenWidth * 1/8;
 float stringLocY = screenHeight * 1/8;
 float stringLocW = screenWidth * 5/18;
-float stringLocH = screenWidth * 1/12; // reg 5/18
+float stringLocH = screenHeight * 1/13; // reg 5/18
 //
 //Strings Vars
 String songTitle = "Song Name";
@@ -24,15 +24,31 @@ println("Start of Console"); //ERROR: In case CONSOLE Memory not enough
 String[] fontOptions = PFont.list(); // List of all fonts on system
 printArray(fontOptions); //Lists all the available font options
 */
-int fontSize = 32;
+float fontSize = screenHeight;
+float TfontSize = 64.0;
 PFont sTitleFont;
 String trebuchetMS = "Trebuchet MS";
 sTitleFont = createFont(trebuchetMS, fontSize);
+//
+//println(sTitleFont);
+//fontSize = 64;
+/* Aspect Ratio Manipulations (changes to variables)
+-choose Aspect Ratio that must be multiplied: fontSize/titleHeight
+-Rewriting fontSize with formula
+*/
+float trebuchetAR = TfontSize / stringLocH;
+println(trebuchetAR);
+fontSize = stringLocH * trebuchetAR;
 //Tools / Create Font / Find Font / Do Not Press "OK"
+
 rect(stringLocX, stringLocY, stringLocW, stringLocH);
 //
 color redInk = #F52828; //Hexidecimal
+color whiteInk = #FFFFFF;
+color clearInk = whiteInk;
 fill(redInk);
+textAlign(CENTER, CENTER); //Function defines the point in which text is drawn from on both the x and y axis
 textFont(sTitleFont, fontSize);
 text(songTitle, stringLocX, stringLocY, stringLocW, stringLocH);
+fill(clearInk);
 //Enter all text from case studies
