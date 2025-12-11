@@ -14,15 +14,15 @@ stringLocX[0] = screenWidth * 1/8;
 stringLocX[1] = screenWidth * 1/8;
 stringLocX[2] = screenWidth * 1/8;
 float[] stringLocY = new float[3];
-stringLocY[0] = screenWidth * 1/8;
+stringLocY[0] = screenHeight * 1/8;
 stringLocY[1] = screenHeight * 3/8;
 stringLocY[2] = screenHeight * 5/8;
 float[] stringLocW = new float[3];
 stringLocW[0] = screenWidth * 5/18;
-stringLocW[1] = screenHeight * 1/9;
-stringLocW[2] = screenHeight * 7/18;
+stringLocW[1] = screenWidth * 1/9;
+stringLocW[2] = screenWidth * 7/18;
 float[] stringLocH = new float[3];
-stringLocH[0] = screenWidth * 1/13;
+stringLocH[0] = screenHeight * 1/13;
 stringLocH[1] = screenHeight * 1/13;
 stringLocH[2] = screenHeight * 1/13;
 //
@@ -50,32 +50,30 @@ sTitleFont = createFont(trebuchetMS, fontSize);
  */
 float trebuchetAR = TfontSize / stringLocH[0];
 println(trebuchetAR);
-fontSize = stringLocH1 * trebuchetAR;
 //Tools / Create Font / Find Font / Do Not Press "OK"
 
-rect(stringLocX1, stringLocY1, stringLocW1, stringLocH1);
-rect(stringLocX2, stringLocY2, stringLocW2, stringLocH2);
-rect(stringLocX3, stringLocY3, stringLocW3, stringLocH3);
+
 //
 color redInk = #F52828; //Hexidecimal
 color whiteInk = #FFFFFF;
 color clearInk = whiteInk;
-fill(redInk);
 textAlign(CENTER, TOP); //Function defines the point in which text is drawn from on both the x and y axis
 //
 //
 //ERROR Check fontSize, decreasing the text when wrapped or not shown
-textFont(sTitleFont, fontSize);
-float textWidthDecrease = 0.97; //1% derease
-for ( int i = 0 ; i <= 3 ; i++ ) {
-  while ( textWidth(description) > stringLocW[i]) {
+float textWidthDecrease = 0.97; //3% derease
+for ( int i = 0 ; i <= 2 ; i++ ) {
+  fontSize = stringLocH[0] * trebuchetAR;
+  textFont(sTitleFont, fontSize);
+  while ( textWidth(songTitle) > stringLocW[i]) {
     //ERROR: Possible infinite loop if while loop condition cannot be satisfied
     fontSize *= textWidthDecrease;
     textFont(sTitleFont, fontSize);
   } //End While error check text-wrap
+  fill(clearInk);
+  rect(stringLocX[i], stringLocY[i], stringLocW[i], stringLocH[i]);
+  fill(redInk);
+  text(songTitle, stringLocX[i], stringLocY[i], stringLocW[i], stringLocH[i]);
+  println(stringLocX[i], stringLocY[i], stringLocW[i], stringLocH[i]);
 } //End FOR Loop, Font Size Check in DIVs
-text(description, stringLocX[0], stringLocY[0], stringLocW[0], stringLocH[0]);
-text(description, stringLocX[1], stringLocY[1], stringLocW[1], stringLocH[1]);
-text(description, stringLocX[2], stringLocY[2], stringLocW[2], stringLocH[2]);
-fill(clearInk);
 //Enter all text from case studies
