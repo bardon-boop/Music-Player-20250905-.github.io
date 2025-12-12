@@ -29,17 +29,20 @@ stringLocH[2] = screenHeight * 1/13;
 //Strings Vars
 String songTitle = "Song Name";
 String songArtist = "Artist Name";
-String description = "6767676767676767676767676767676767676767676767676767676767676767";
+String suggestions = "You May Like:";
 //
-/*Fonts from OS
+//Fonts from OS
  println("Start of Console"); //ERROR: In case CONSOLE Memory not enough
  String[] fontOptions = PFont.list(); // List of all fonts on system
  printArray(fontOptions); //Lists all the available font options
- */
+ 
 float fontSize = screenHeight;
-float TfontSize = 64.0;
+float TfontSize = 64.0; //Hardcoded fontSize that is the largest within the height parameter used
 PFont sTitleFont;
-String trebuchetMS = "Trebuchet MS";
+int NofFonts = 3
+String fontChosen = new String[NofFonts];
+fontChosen[0] = "Trebuchet MS";
+fontChosen[1] = "
 sTitleFont = createFont(trebuchetMS, fontSize);
 //
 //println(sTitleFont);
@@ -61,11 +64,11 @@ textAlign(CENTER, TOP); //Function defines the point in which text is drawn from
 //
 //
 //ERROR Check fontSize, decreasing the text when wrapped or not shown
-float textWidthDecrease = 0.97; //3% derease
+float textWidthDecrease = 0.95; //5% derease
 for ( int i = 0 ; i <= 2 ; i++ ) {
   fontSize = stringLocH[0] * trebuchetAR;
   textFont(sTitleFont, fontSize);
-  while ( textWidth(songTitle) > stringLocW[i]) {
+  while ( textWidth(suggestions) > stringLocW[i]) {
     //ERROR: Possible infinite loop if while loop condition cannot be satisfied
     fontSize *= textWidthDecrease;
     textFont(sTitleFont, fontSize);
@@ -73,7 +76,7 @@ for ( int i = 0 ; i <= 2 ; i++ ) {
   fill(clearInk);
   rect(stringLocX[i], stringLocY[i], stringLocW[i], stringLocH[i]);
   fill(redInk);
-  text(songTitle, stringLocX[i], stringLocY[i], stringLocW[i], stringLocH[i]);
+  text(suggestions, stringLocX[i], stringLocY[i], stringLocW[i], stringLocH[i]);
   //println(stringLocX[i], stringLocY[i], stringLocW[i], stringLocH[i]); //Checking each box's parameters
 } //End FOR Loop, Font Size Check in DIVs
 //Enter all text from case studies
