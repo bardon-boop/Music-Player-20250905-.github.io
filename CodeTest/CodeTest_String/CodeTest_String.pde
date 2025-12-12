@@ -74,6 +74,6 @@ for ( int i = 0 ; i <= 2 ; i++ ) {
   rect(stringLocX[i], stringLocY[i], stringLocW[i], stringLocH[i]);
   fill(redInk);
   text(songTitle, stringLocX[i], stringLocY[i], stringLocW[i], stringLocH[i]);
-  println(stringLocX[i], stringLocY[i], stringLocW[i], stringLocH[i]);
+  //println(stringLocX[i], stringLocY[i], stringLocW[i], stringLocH[i]); //Checking each box's parameters
 } //End FOR Loop, Font Size Check in DIVs
 //Enter all text from case studies
