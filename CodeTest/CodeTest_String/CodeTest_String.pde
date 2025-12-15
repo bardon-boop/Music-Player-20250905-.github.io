@@ -32,18 +32,20 @@ String songArtist = "Artist Name";
 String suggestions = "You May Like:";
 //
 //Fonts from OS
+/*
  println("Start of Console"); //ERROR: In case CONSOLE Memory not enough
  String[] fontOptions = PFont.list(); // List of all fonts on system
  printArray(fontOptions); //Lists all the available font options
+ */
  
 float fontSize = screenHeight;
-float TfontSize = 64.0; //Hardcoded fontSize that is the largest within the height parameter used
+float hardFontSize = 64.0; //Hardcoded fontSize that is the largest within the height parameter used
 PFont sTitleFont;
-int NofFonts = 3
-String fontChosen = new String[NofFonts];
+int NofFonts = 3;
+String[] fontChosen = new String[NofFonts];
 fontChosen[0] = "Trebuchet MS";
-fontChosen[1] = "
-sTitleFont = createFont(trebuchetMS, fontSize);
+fontChosen[1] = "Verdana";
+fontChosen[2] = "Times New Roman";
 //
 //println(sTitleFont);
 //fontSize = 64;
@@ -51,7 +53,7 @@ sTitleFont = createFont(trebuchetMS, fontSize);
  -choose Aspect Ratio that must be multiplied: fontSize/titleHeight
  -Rewriting fontSize with formula
  */
-float trebuchetAR = TfontSize / stringLocH[0];
+float trebuchetAR = hardFontSize / stringLocH[0];
 println(trebuchetAR);
 //Tools / Create Font / Find Font / Do Not Press "OK"
 
@@ -66,6 +68,7 @@ textAlign(CENTER, TOP); //Function defines the point in which text is drawn from
 //ERROR Check fontSize, decreasing the text when wrapped or not shown
 float textWidthDecrease = 0.95; //5% derease
 for ( int i = 0 ; i <= 2 ; i++ ) {
+  sTitleFont = createFont(fontChosen[i], fontSize);
   fontSize = stringLocH[0] * trebuchetAR;
   textFont(sTitleFont, fontSize);
   while ( textWidth(suggestions) > stringLocW[i]) {
