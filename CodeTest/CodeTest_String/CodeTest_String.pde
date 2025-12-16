@@ -24,7 +24,7 @@ stringLocW[2] = screenWidth * 7/18;
 float[] stringLocH = new float[3];
 stringLocH[0] = screenHeight * 1/13;
 stringLocH[1] = screenHeight * 1/13;
-stringLocH[2] = screenHeight * 1/13;
+stringLocH[2] = screenHeight * 1/13; //1/13
 //
 //Strings Vars
 String songTitle = "Song Name";
