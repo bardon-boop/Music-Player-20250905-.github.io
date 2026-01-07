@@ -24,7 +24,7 @@ int NofSongs = 3; // # of songs, best practice
 int NofSFX = 2; // # of sound efffects, best practice
 AudioPlayer[] songList = new AudioPlayer[NofSongs];
 AudioPlayer[] SFXList = new AudioPlayer[NofSFX];
-int songPlaying; //Zero, Math Property
+int songPlaying = 0; //Zero, Math Property
 //
 //Display
 size(500, 750); //Portrait
@@ -43,12 +43,13 @@ String[] sFileExt = new String[NofSongs];
 sFileExt[0] = ".mp3";
 sFileExt[1] = ".mp3";
 sFileExt[2] = ".mp3";
-for (songPlaying = 0; songPlaying <= 2; songPlaying++) {
-   if (songList[songPlaying] == null) {
+String sPathway;
+for (int i = 0; i <= 2; i++) {
+  sPathway = fileBack + musicFolder + songFile[i] + sFileExt[i]; //Concatenation
+  songList[i] = minim.loadFile(sPathway);
+  if (songList[i] == null) {
     println("Null Check on songList failed");
   }
-  String sPathway = fileBack + musicFolder + songFile[songPlaying] + sFileExt[songPlaying]; //Concatenation
-  songList[songPlaying] = minim.loadFile(sPathway);
   println(sPathway);
 }
 //
