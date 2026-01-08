@@ -27,24 +27,37 @@ void setup() {
   songFile[0] = "Down The Rabbit Hole - The Grey Room _ Density & Time (1)";
   songFile[1] = "In The Morning - The Grey Room _ Clark Sims";
   songFile[2] = "On The Flip - The Grey Room _ Density & Time";
-  String[] sFileExt = new String[NofSongs];
-  sFileExt[0] = ".mp3";
-  sFileExt[1] = ".mp3";
-  sFileExt[2] = ".mp3";
+  String[] SFXFile = new String[NofSFX];
+  SFXFile[0] = "Cartoon Metal Thunk";
+  SFXFile[1] = "Straw Squeak";
+  String FileExt = ".mp3";
   String sPathway;
+  String ePathway;
   for (int i = 0; i <= 2; i++) {
-    sPathway = fileBack + musicFolder + songFile[i] + sFileExt[i]; //Concatenation
-    println(sPathway);
+    sPathway = fileBack + musicFolder + songFile[i] + FileExt; //Concatenation
+    //println(sPathway);
     songList[i] = minim.loadFile(sPathway);
     if (songList[i] == null) {
       println("Null Check on songList failed");
     }
   }
+  for (int i = 0; i <= 1; i++) {
+    ePathway = fileBack + musicFolder + SFXFile[i] + FileExt;
+    println(ePathway);
+    SFXList[i] = minim.loadFile(ePathway);
+    if (SFXList[i] == null) {
+      println("Null Check on SFXList failed");
+    }
+  }
+  println("Song Data:");
   printArray(songList);
+  println("SFX Data:");
+  printArray(SFXList);
 } //End Setup
 //
 void draw() {
-  songList[1].play();
+  songList[songPlaying].play();
+  //SFXList[0].play();
 } // End Draw
 //
 void mousePressed() {
