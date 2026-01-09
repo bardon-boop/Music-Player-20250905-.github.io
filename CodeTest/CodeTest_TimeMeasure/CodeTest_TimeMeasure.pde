@@ -11,5 +11,9 @@ void setup() {
 void draw() {
   timer = millis();
   println("Draw Start", timer);
+  timer = millis();
   noLoop();
+  timer = millis();
+  println("Draw End", timer);
+  exit();
 }
