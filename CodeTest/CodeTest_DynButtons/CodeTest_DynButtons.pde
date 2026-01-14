@@ -3,17 +3,29 @@
 // Parameters Initiation
 int screenWidth;
 int screenHeight;
+float exitX, exitY, exitW, exitH;
 float rectX, rectY, rectW, rectH;
 float playButtonX13, playButtonX2, playButtonY1, playButtonY2, playButtonY3;
 //Colours Initiation
 color BG, clear; //Black, White and BG are Greyscale
 color playButtonBox, playButtonTri, playButtonBoxH, playButtonTriH;
-boolean mouseHoveredPB;
+color playButtonBoxN, playButtonTriN, playButtonBoxHN, playButtonTriHN;
+color exitButtonC, exitButtonCH;
+color exitButtonCN, exitButtonCHN;
+boolean mouseHoveredPB, mouseHoveredEB;
+boolean nightToggle;
 void setup() {
   size(1000, 700);
   screenWidth = width;
   screenHeight = height;
   rectX = screenWidth * 1/2 - screenWidth * 1/20;
+  rectY = screenHeight * 1/2 - screenHeight * 1/20;
+  rectH = screenHeight * 1/10;
+  rectW = screenWidth * 1/10;
+  exitX = screenWidth * 19/20;
+  exitY = 0;
+  exitW = screenWidth * 1/20;
+  exitH = screenWidth * 1/20;
   rectY = screenHeight * 1/2 - screenHeight * 1/20;
   rectH = screenHeight * 1/10;
   rectW = screenWidth * 1/10;
@@ -30,12 +42,25 @@ void setup() {
   color red = #E30302;
   color mDarkRed = #BF2323;
   color darkRed = #981A1A;
-  BG = #B9B9B9;
+  color lGray = #D6D6D6;
+  color gray = #B9B9B9;
+  color dGray = #484848;
+  BG = gray;
   playButtonBox = red;
   playButtonTri = mDarkRed;
   playButtonBoxH = darkRed;
   playButtonTriH = red;
+  exitButtonC = white;
+  exitButtonCH = red;
+  playButtonBoxN = dGray;
+  playButtonTriN = gray;
+  playButtonBoxHN = dGray;
+  playButtonTriHN = lGray;
+  exitButtonCN = white;
+  exitButtonCHN = gray;
   clear = white;
+  //
+  nightToggle = false;
 }
 //
 void draw() {
@@ -45,6 +70,11 @@ void draw() {
     mouseHoveredPB = true; //If mouse is hovered
   } else {
     mouseHoveredPB = false; // If mouse is not
+  }
+  if (exitX < mouseX && mouseX < exitX + exitW && exitY < mouseY && mouseY < exitY + exitH) {
+    mouseHoveredEB = true; //If mouse is hovered
+  } else {
+    mouseHoveredEB = false; // If mouse is not
   }
   if (mouseHoveredPB == true) {
     fill(playButtonBoxH);
@@ -57,6 +87,13 @@ void draw() {
     fill(playButtonTri);
     triangle(playButtonX13, playButtonY1, playButtonX2, playButtonY2, playButtonX13, playButtonY3);
   }
+  if (mouseHoveredEB == true) {
+    fill(exitButtonCH);
+    rect(exitX, exitY, exitW, exitH);
+  } else {
+    fill(exitButtonC);
+    rect(exitX, exitY, exitW, exitH);
+  }
   fill(clear);
 }
 //
@@ -64,5 +101,20 @@ void mousePressed() {
 }
 //
 void keyPressed() {
+  if (key == 'x') {
+    quitOut();
+  }
+  if (key == 'z') {
+    if (nightToggle == false) {
+      nightToggle = true;
+    } else {
+      nightToggle = false;
+    }
+  }
+}
+
+void quitOut() {
+  noLoop();
+  exit();
 }
 //
