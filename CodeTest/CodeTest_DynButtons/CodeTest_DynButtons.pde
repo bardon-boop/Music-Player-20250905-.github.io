@@ -37,31 +37,10 @@ void setup() {
   rect(rectX, rectY, rectW, rectH);
   triangle(playButtonX13, playButtonY1, playButtonX2, playButtonY2, playButtonX13, playButtonY3);
   //Colour Declaration and Population
-  color black = #000000;
-  color white = #FFFFFF;
-  color red = #E30302;
-  color mDarkRed = #BF2323;
-  color darkRed = #981A1A;
-  color lGray = #D6D6D6;
-  color gray = #B9B9B9;
-  color dGray = #484848;
-  BG = gray;
-  playButtonBox = red;
-  playButtonTri = mDarkRed;
-  playButtonBoxH = darkRed;
-  playButtonTriH = red;
-  exitButtonC = white;
-  exitButtonCH = red;
-  playButtonBoxN = dGray;
-  playButtonTriN = gray;
-  playButtonBoxHN = dGray;
-  playButtonTriHN = lGray;
-  exitButtonCN = white;
-  exitButtonCHN = gray;
-  clear = white;
+  developingColourV(); //See Cpop
   //
   nightToggle = false;
-}
+} //End Setup
 //
 void draw() {
   background(BG);
@@ -77,18 +56,38 @@ void draw() {
     mouseHoveredEB = false; // If mouse is not
   }
   if (mouseHoveredPB == true) {
-    fill(playButtonBoxH);
+    if (nightToggle == false) {
+      fill(playButtonBoxH);
+    } else {
+      fill(playButtonBoxHN);
+    }
     rect(rectX, rectY, rectW, rectH);
-    fill(playButtonTriH);
+    if (nightToggle == false) {
+      fill(playButtonTriH);
+    } else {
+      fill(playButtonTriHN);
+    }
     triangle(playButtonX13, playButtonY1, playButtonX2, playButtonY2, playButtonX13, playButtonY3);
   } else {
-    fill(playButtonBox);
+    if (nightToggle ==false) {
+      fill(playButtonBox);
+    } else {
+      fill(playButtonBoxN);
+    }
     rect(rectX, rectY, rectW, rectH);
-    fill(playButtonTri);
+    if (nightToggle == false) {
+      fill(playButtonTri);
+    } else {
+      fill (playButtonTriN);
+    }
     triangle(playButtonX13, playButtonY1, playButtonX2, playButtonY2, playButtonX13, playButtonY3);
   }
   if (mouseHoveredEB == true) {
-    fill(exitButtonCH);
+    if (nightToggle == false) {
+      fill(exitButtonCH);
+    } else {
+      fill(exitButtonCHN);
+    }
     rect(exitX, exitY, exitW, exitH);
   } else {
     fill(exitButtonC);
@@ -98,10 +97,13 @@ void draw() {
 }
 //
 void mousePressed() {
+  if (mouseHoveredEB == true) {
+    quitOut();
+  }
 }
 //
 void keyPressed() {
-  if (key == 'x') {
+  if (key == 'X' || key == 'x') {
     quitOut();
   }
   if (key == 'z') {
@@ -110,11 +112,13 @@ void keyPressed() {
     } else {
       nightToggle = false;
     }
+    println(nightToggle);
   }
 }
 
 void quitOut() {
   noLoop();
   exit();
+  println("PROGRAM ENDED");
 }
 //
