@@ -1,4 +1,6 @@
 void colourDeclaration() {
+  nightToggling();
+  developingColourV();
 } // Ending Colour Pop
 void nightToggling() {
   if (nightToggle == false) {
