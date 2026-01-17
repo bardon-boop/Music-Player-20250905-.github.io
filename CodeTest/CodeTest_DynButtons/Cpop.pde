@@ -1,7 +1,7 @@
 void colourDeclaration() {
   nightToggling();
   developingColourV();
-} // Ending Colour Pop
+}// Ending Colour Pop
 void nightToggling() {
   if (nightToggle == false) {
     nightToggle = true;
@@ -9,6 +9,7 @@ void nightToggling() {
     nightToggle = false;
   }
 }
+
 
 void developingColourV() {
   color black = #000000;
@@ -20,17 +21,32 @@ void developingColourV() {
   color gray = #B9B9B9;
   color dGray = #484848;
   BG = gray;
-  playButtonBox = red;
-  playButtonTri = mDarkRed;
-  playButtonBoxH = darkRed;
-  playButtonTriH = red;
+  playButtonBox = darkRed;
+  playButtonTri = red;
+  playButtonBoxH = red;
+  playButtonTriH = mDarkRed;
   exitButtonC = white;
   exitButtonCH = red;
-  playButtonBoxN = lGray;
-  playButtonTriN = gray;
-  playButtonBoxHN = dGray;
-  playButtonTriHN = lGray;
+  playButtonBoxN = dGray;
+  playButtonTriN = lGray;
+  playButtonBoxHN = lGray;
+  playButtonTriHN = gray;
   exitButtonCN = white;
   exitButtonCHN = gray;
+  if (nightToggle == false) {
+    playB = playButtonBox;
+    playT = playButtonTri;
+    playBH = playButtonBoxH;
+    playTH = playButtonTriH;
+    exit = exitButtonC;
+    exitHo = exitButtonCH;
+  } else {
+    playB = playButtonBoxN;
+    playT = playButtonTriN;
+    playBH = playButtonBoxHN;
+    playTH = playButtonTriHN;
+    exit = exitButtonCN;
+    exitHo = exitButtonCHN;
+  }
   clear = white;
 } //End Colour Defintion

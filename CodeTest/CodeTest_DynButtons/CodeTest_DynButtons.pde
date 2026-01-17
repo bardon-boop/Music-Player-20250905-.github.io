@@ -14,6 +14,7 @@ color playButtonBox, playButtonTri, playButtonBoxH, playButtonTriH;
 color playButtonBoxN, playButtonTriN, playButtonBoxHN, playButtonTriHN;
 color exitButtonC, exitButtonCH;
 color exitButtonCN, exitButtonCHN;
+color exit, exitHo, playB, playT, playBH, playTH;
 boolean mouseHoveredPB, mouseHoveredEB, mouseClicked;
 boolean nightToggle;
 
@@ -21,6 +22,7 @@ void setup() {
   size(1000, 700);
   screenWidth = width;
   screenHeight = height;
+  // DIV Population
   rectX = screenWidth * 1/2 - screenWidth * 1/20;
   rectY = screenHeight * 1/2 - screenHeight * 1/20;
   rectH = screenHeight * 1/10;
@@ -37,7 +39,9 @@ void setup() {
   playButtonY1 = rectY + rectH * 1/4;
   playButtonY2 = rectY + rectH * 1/2;
   playButtonY3 = rectY + rectH * 3/4;
+  //Colour Pop
   developingColourV();
+  //
   rect(rectX, rectY, rectW, rectH);
   triangle(playButtonX13, playButtonY1, playButtonX2, playButtonY2, playButtonX13, playButtonY3);
 } //End Setup
@@ -60,25 +64,19 @@ void draw() {
     if (mouseClicked == false) {
       playButtonHovered();
     } else {
-      playButtonNH();
+      playButtonNoH();
     }
   } else {
-    playButtonNH();
+    playButtonNoH();
   }
-    //
-    if (mouseHoveredEB == true) {
-      if (nightToggle == false) {
-        fill(exitButtonCH);
-      } else {
-        fill(exitButtonCHN);
-      }
-      rect(exitX, exitY, exitW, exitH);
-    } else {
-      fill(exitButtonC);
-      rect(exitX, exitY, exitW, exitH);
-    }
-    fill(clear);
+  //
+  if (mouseHoveredEB == true) {
+    exitButtonHovered();
+  } else {
+    exitButtonNoH();
   }
+  fill(clear);
+}
 
 
 //
@@ -104,8 +102,10 @@ void keyPressed() {
   if (key == 'z') {
     if (nightToggle == false) {
       nightToggle = true;
+      nightModeColourReset();
     } else {
       nightToggle = false;
+      nightModeColourReset();
     }
     println(nightToggle);
   }
