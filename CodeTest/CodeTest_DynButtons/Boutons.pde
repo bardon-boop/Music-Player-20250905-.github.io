@@ -21,17 +21,7 @@ void exitButtonNoH() {
   fill(exit);
   rect(exitX, exitY, exitW, exitH);
 } //End not Hovered Program
-
-
-
-
-
-
-
-
-
-
-
+//
 void nightModeColourReset() {
   if (nightToggle == false) {
     playB = playButtonBox;
