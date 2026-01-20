@@ -26,4 +26,20 @@ void divisionDeclaration() {
   playButtonY1 = soundConY1 + soundConH1 * 1/4;
   playButtonY2 = soundConY1 + soundConH1 * 2/4;
   playButtonY3 = soundConY1 + soundConH1 * 3/4;
+  pause1ButtonX = soundConX2 + soundConW2 * 1/4;
+  pause1ButtonY = soundConY2 + soundConH2 * 1/4;
+  pause1ButtonWidth = soundConW2 * 3/16;
+  pause1ButtonHeight = soundConH2 * 1/2;
+  pause2ButtonX = soundConX2 + soundConW2 * 9/16;
+  pause2ButtonY = soundConY2 + soundConH2 * 1/4;
+  pause2ButtonWidth = soundConW2 * 3/16;
+  pause2ButtonHeight = soundConH2 * 1/2;
+  nextSongX13t = soundConX3 + soundConW3 * 1/4;
+  nextSongX2t = soundConX3 + soundConW3 * 1/2;
+  nextSongY1t = soundConY3 + soundConH3 * 1/4;
+  nextSongY2t = soundConY3 + soundConH3 * 1/2;
+  nextSongY3t = soundConY3 + soundConH3 * 3/4;
+  nextSongX = soundConX3 + soundConW3 * 9/16;
+  nextSongY = soundConY3 + soundConW3 * 1/4;
+  nextSongWid
 }
