@@ -1,0 +1,29 @@
+void divisionDeclaration() {
+  screenWidth = displayWidth;
+  screenHeight = displayHeight;
+  soundConX1 = screenWidth * 13/36 + 2;
+  soundConX2 = screenWidth * 15/36 + 1;
+  soundConX3 = screenWidth * 17/36;
+  soundConX4 = screenWidth * 19/36 - 1;
+  soundConX5 = screenWidth * 21/36 - 2;
+  soundConY1 = screenHeight * 15/18;
+  soundConY2 = screenHeight * 15/18;
+  soundConY3 = screenHeight * 15/18;
+  soundConY4 = screenHeight * 15/18;
+  soundConY5 = screenHeight * 15/18;
+  soundConW1 = screenWidth * 1/18;
+  soundConW2 = screenWidth * 1/18;
+  soundConW3 = screenWidth * 1/18;
+  soundConW4 = screenWidth * 1/18;
+  soundConW5 = screenWidth * 1/18;
+  soundConH1 = screenWidth * 1/18;
+  soundConH2 = screenWidth * 1/18;
+  soundConH3 = screenWidth * 1/18;
+  soundConH4 = screenWidth * 1/18;
+  soundConH5 = screenWidth * 1/18;
+  playButtonX13 = soundConX1 + soundConW1 * 1/4;
+  playButtonX2 = soundConX1 + soundConW1 * 3/4;
+  playButtonY1 = soundConY1 + soundConH1 * 1/4;
+  playButtonY2 = soundConY1 + soundConH1 * 2/4;
+  playButtonY3 = soundConY1 + soundConH1 * 3/4;
+}
