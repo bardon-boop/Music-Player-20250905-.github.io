@@ -7,6 +7,7 @@ import ddf.minim.effects.*;
 import ddf.minim.signals.*;
 import ddf.minim.spi.*;
 import ddf.minim.ugens.*;
+Minim minim;
 //
 // VARS Initiation
 int screenWidth, screenHeight;
@@ -25,9 +26,71 @@ float line1X, line1Y, line1Xp2B, line1Yp2B, line2Xp2B, line2Yp2B, line3Xp2, line
 float shuffleX1245t, shuffleY1t, shuffleY2t, shuffleX36t, shuffleY3t, shuffleY4t, shuffleY5t, shuffleY6t;
 //
 // Colour Initiation
-
+color BG;
+color playButtonBox, playButtonTri, playButtonBoxH, playButtonTriH;
+color playButtonBoxN, playButtonTriN, playButtonBoxHN, playButtonTriHN;
+color pauseButtonBox, pauseButtonRec, pauseButtonBoxH, pauseButtonRecH;
+color pauseButtonBoxN, pauseButtonRecN, pauseButtonBoxHN, pauseButtonRecHN;
+color nextButtonBox, nextButtonTri, nextButtonRec, nextButtonBoxH, nextButtonTriH, nextButtonRecH;
+color nextButtonBoxN, nextButtonTriN, nextButtonRecN, nextButtonBoxHN, nextButtonTriHN, nextButtonRecHN;
+color lastButtonBox, lastButtonTri, lastButtonRec, lastButtonBoxH, lastButtonTriH, lastButtonRecH;
+color lastButtonBoxN, lastButtonTriN, lastButtonRecN, lastButtonBoxHN, lastButtonTriHN, lastButtonRecHN;
+color shuffleBox, shuffleTri, shuffleBoxH, shuffleTriH;
+color shuffleBoxN, shuffleTriN, shuffleBoxHN, shuffleTriHN;
+color playB, playT, playBH, playTH, pauseB, pauseR, pauseBH, pauseRH, nextB, nextT, nextR, nextBH, nextTH, nextRH;
+color shuffleB, shuffleT, shuffleBH, shuffleTH, lastB, lastT, lastR, lastBH, lastTH, lastRH;
+boolean mouseHoveredPB, mouseHoveredPaB, mouseHoveredNB, mouseHoveredLB, mouseHoveredSB;
+boolean nightToggle;
+// Music Initiation
+int musicSongs = 3;
+int SFX = 2;
+int songDetermined;
+AudioPlayer[] songList = new AudioPlayer[musicSongs];
+AudioPlayer[] SFXList = new AudioPlayer[SFX];
+int lastWaitPeriod;
+//
 void setup() {
   fullScreen();
   divisionDeclaration();
+  colourPop();
+  background(BG);
   printButtons();
+  loadMusic();
+}
+
+void draw() {
+  buttonColours();
+}
+
+void mousePressed() {
+  if (mouseHoveredPB == true) {
+    playMusic();
+  }
+  if (mouseHoveredPaB == true) {
+    pauseMusic();
+  }
+  if (mouseHoveredNB == true) {
+    nextSong();
+  }
+  if (mouseHoveredLB == true) {
+    lastSong();
+  }
+  if (mouseHoveredSB == true) {
+    shufflePlaylist();
+  }
+}
+
+void keyPressed() {
+  if (key == 'z') {
+    toggleNightM();
+    colourPop();
+  }
+  if (key == 'x') {
+    quitProgram();
+  }
+}
+
+void quitProgram() {
+  noLoop();
+  exit();
 }
