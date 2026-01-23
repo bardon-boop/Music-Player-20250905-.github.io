@@ -36,13 +36,13 @@
   float albumCW = appWidth * 5/18;
   float albumCH = appWidth * 5/18;
   float txtSX = appWidth * 1/8;
-  float txtSY = appHeight * 11/16;
+  float txtSY = appHeight * 21/32;
   float txtSW = appWidth * 1/9;
-  float txtSH = appHeight * 1/18;
+  float txtSH = appHeight * 1/13;
   float txtAX = appWidth * 1/8;
   float txtAY = appHeight * 3/4;
   float txtAW = appWidth * 1/10;
-  float txtAH = appHeight * 1/20;
+  float txtAH = appHeight * 1/13;
   float SBSoundCon1 = 20;
   float SBSoundCon2 = 20;
   float SBSoundCon3 = 20;

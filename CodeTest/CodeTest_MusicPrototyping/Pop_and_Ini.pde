@@ -88,6 +88,9 @@ void colourPop() {
   color gray = #B9B9B9;
   color dGray = #484848;
   BG = black;
+  clear = white;
+  textSong = red;
+  textArtist = mDarkRed;
   playButtonBox = darkRed;
   playButtonTri = red;
   playButtonBoxH = red;

@@ -24,7 +24,7 @@ void setup() {
   String fileBack = "../../";
   String musicFolder = "Music/";
   String[] songFile = new String[NofSongs];
-  songFile[0] = "Down The Rabbit Hole - The Grey Room _ Density & Time (1)";
+  songFile[0] = "Down The Rabbit Hole - The Grey Room _ Density & Time";
   songFile[1] = "In The Morning - The Grey Room _ Clark Sims";
   songFile[2] = "On The Flip - The Grey Room _ Density & Time";
   String[] SFXFile = new String[NofSFX];

@@ -26,7 +26,7 @@ float line1X, line1Y, line1Xp2B, line1Yp2B, line2Xp2B, line2Yp2B, line3Xp2, line
 float shuffleX1245t, shuffleY1t, shuffleY2t, shuffleX36t, shuffleY3t, shuffleY4t, shuffleY5t, shuffleY6t;
 //
 // Colour Initiation
-color BG;
+color BG, clear;
 color playButtonBox, playButtonTri, playButtonBoxH, playButtonTriH;
 color playButtonBoxN, playButtonTriN, playButtonBoxHN, playButtonTriHN;
 color pauseButtonBox, pauseButtonRec, pauseButtonBoxH, pauseButtonRecH;
@@ -39,6 +39,7 @@ color shuffleBox, shuffleTri, shuffleBoxH, shuffleTriH;
 color shuffleBoxN, shuffleTriN, shuffleBoxHN, shuffleTriHN;
 color playB, playT, playBH, playTH, pauseB, pauseR, pauseBH, pauseRH, nextB, nextT, nextR, nextBH, nextTH, nextRH;
 color shuffleB, shuffleT, shuffleBH, shuffleTH, lastB, lastT, lastR, lastBH, lastTH, lastRH;
+color textSong, textArtist;
 boolean mouseHoveredPB, mouseHoveredPaB, mouseHoveredNB, mouseHoveredLB, mouseHoveredSB;
 boolean nightToggle;
 // Music Initiation
@@ -48,6 +49,17 @@ int songDetermined;
 AudioPlayer[] songList = new AudioPlayer[musicSongs];
 AudioPlayer[] SFXList = new AudioPlayer[SFX];
 int lastWaitPeriod;
+// Text Initiation
+int stringsPresent = 2;
+float[] stringLocX = new float[stringsPresent];
+float[] stringLocY = new float[stringsPresent];
+float[] stringLocW = new float[stringsPresent];
+float[] stringLocH = new float[stringsPresent];
+String fontChosen;
+float trebuchetAR;
+float[] fontSize = new float[stringsPresent];
+String[] textStrings = new String[stringsPresent];
+AudioMetaData[] songData = new AudioMetaData[musicSongs];
 //
 void setup() {
   fullScreen();
@@ -56,10 +68,12 @@ void setup() {
   background(BG);
   printButtons();
   loadMusic();
+  textStartUp();
 }
 
 void draw() {
   buttonColours();
+  printText();
 }
 
 void mousePressed() {

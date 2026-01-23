@@ -5,8 +5,8 @@ void loadMusic() {
   songDetermined = 0;
   lastWaitPeriod = 3000;
   String[] songFile = new String[musicSongs];
-  songFile[0] = "Down The Rabbit Hole - The Grey Room _ Density & Time (1)";
-  songFile[1] = "In The Morning - The Grey Room _ Clark Sims";
+  songFile[0] = "Satin Sugar - Huma-Huma";
+  songFile[1] = "Eureka";
   songFile[2] = "On The Flip - The Grey Room _ Density & Time";
   String[] SFXFile = new String[SFX];
   SFXFile[0] = "Cartoon Metal Thunk";
@@ -20,6 +20,7 @@ void loadMusic() {
     songList[i] = minim.loadFile(sPathway);
     if (songList[i] == null) {
       println("Null Check on songList failed");
+      quitProgram();
     }
   }
   for (int i = 0; i <= 1; i++) {
@@ -29,6 +30,7 @@ void loadMusic() {
     if (SFXList[i] == null) {
       println("Null Check on SFXList failed");
     }
+    populateMetaData();
   }
   //  printArray(songList);
   //  printArray(SFXList);
@@ -93,7 +95,6 @@ void shufflePlaylist() {
       }
       songList[i] = optionsList[random];
     }
-    printArray(songList);
     songList[songDetermined].play();
   }
 }
