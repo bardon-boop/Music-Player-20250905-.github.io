@@ -68,8 +68,14 @@ float imageRectX;
 float imageRectY;
 float imageRectWidth;
 float imageRectHeight;
+float centerAdjustment;
 int imageCount = 3;
+float[] imageWidthAdapt = new float[imageCount];
+float[] imageHeightAdapt = new float[imageCount];
 PImage[] imageSelected = new PImage[imageCount];
+int[] hardImageStatsW = new int[imageCount];
+int[] hardImageStatsH = new int[imageCount];
+int imageIndex;
 //
 void setup() {
   fullScreen();
@@ -80,11 +86,13 @@ void setup() {
   printButtons();
   loadMusic();
   textStartUp();
+  loadImages();
 }
 
 void draw() {
   buttonColours();
   printText();
+  coverLogic();
 }
 
 void mousePressed() {
