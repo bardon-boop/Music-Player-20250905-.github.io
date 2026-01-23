@@ -63,10 +63,18 @@ float trebuchetAR;
 float[] fontSize = new float[stringsPresent];
 String[] textStrings = new String[stringsPresent];
 AudioMetaData[] songData = new AudioMetaData[musicSongs];
+// Image Divs and Vars Initiation
+float imageRectX;
+float imageRectY;
+float imageRectWidth;
+float imageRectHeight;
+int imageCount = 3;
+PImage[] imageSelected = new PImage[imageCount];
 //
 void setup() {
   fullScreen();
   divisionDeclaration();
+  loadImages();
   colourPop();
   background(BG);
   printButtons();

@@ -1,6 +1,6 @@
 void loadMusic() {
   minim = new Minim(this);
-  String fileBack = "../../";
+  String fileBack = "../";
   String musicFolder = "Music/";
   songDetermined = 0;
   lastWaitPeriod = 3000;
@@ -30,6 +30,7 @@ void loadMusic() {
     if (SFXList[i] == null) {
       println("Null Check on SFXList failed");
     }
+    printArray(songList);
     populateMetaData();
   }
   //  printArray(songList);
@@ -72,29 +73,22 @@ void lastSong() {
 
 void shufflePlaylist() {
   AudioPlayer optionsList[] = new AudioPlayer[musicSongs];
-  optionsList[0] = songList[0];
-  optionsList[1] = songList[1];
-  optionsList[2] = songList[2];
-  int random;
-  for (int i = 0; i < 3; i++) {
-    songList[songDetermined].rewind();
-    songList[songDetermined].pause();
-    random = int(random(0, 3));
-    if (i == 0) {
-      songList[i] = optionsList[random];
-    }
-    if (i == 1) {
-      while (optionsList[random] == songList[i + 1] || optionsList[random] == songList[i - 1]) {
-        random = int(random(0, 3));
-      }
-    } else {
-      if (i == 2) {
-        while (optionsList[random] == songList[i - 1] || optionsList[random] == songList[i - 2]) {
-          random = int(random(0, 3));
-        }
-      }
-      songList[i] = optionsList[random];
-    }
-    songList[songDetermined].play();
+  for (int x = 0; x < musicSongs; x++) {
+    optionsList[x] = songList[x];
   }
+  songList[songDetermined].rewind();
+  songList[songDetermined].pause();
+  int random;
+  songList[songDetermined].rewind();
+  songList[songDetermined].pause();
+  //
+  random = int(random(1, 3));
+  songList[0] = optionsList[random];
+  random = (songList[0] == optionsList[1]) ? (int(random(3) == 0 ? 0 : 2)): int(random(0, 2));
+  songList[1] = optionsList[random];
+  random = (songList[0] == optionsList[1] && songList[1] == optionsList[0]) ? 2 : 0;
+  songList[2] = optionsList[random];
+  //
+  songList[songDetermined].play();
+
 }

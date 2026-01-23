@@ -28,6 +28,7 @@ void textStartUp() {
 }
 
 void printText() {
+  populateMetaData();
   textStrings[0] = songData[songDetermined].title();
   textStrings[1] = songData[songDetermined].author();
   float textWidthDecrease = 0.95; //5% derease
