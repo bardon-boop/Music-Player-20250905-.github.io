@@ -83,10 +83,12 @@ void determineAR() {
 }
 
 void printAlbumC() {
+  fill(albumColour);
   rect(imageRectX, imageRectY, imageRectWidth, imageRectHeight);
   if (imageRectHeight-imageHeightAdapt[imageIndex] > 0) {
     image( imageSelected[imageIndex], imageRectX, imageRectY + centerAdjustment[imageIndex], imageWidthAdapt[imageIndex], imageHeightAdapt[imageIndex]); //For centring on the y-axis
   } else {
     image( imageSelected[imageIndex], imageRectX  + centerAdjustment[imageIndex], imageRectY, imageWidthAdapt[imageIndex], imageHeightAdapt[imageIndex]); //For centring on the x-axis
   }
+  fill(clear);
 }

@@ -20,7 +20,7 @@ void textStartUp() {
   trebuchetAR = trebuchetFontHard / stringLocH[0];
   }
 
-void textSize() {
+void textSizing() {
     textStrings[0] = songData[songDetermined].title();
   if (textStrings[0] == "") {
     textStrings[0] = songData[songDetermined].fileName();
@@ -39,7 +39,7 @@ void textSize() {
 }
 
 void printText() {
-  textSize();
+  textSizing();
   textStrings[0] = songData[songDetermined].title();
   if (textStrings[0] == "") {
     textStrings[0] = songData[songDetermined].fileName();

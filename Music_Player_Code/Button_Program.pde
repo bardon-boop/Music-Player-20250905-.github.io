@@ -14,6 +14,16 @@ void toggleNightM() {
   }
 }
 
+void printExit() {
+  fill(exit);
+  rect(exitX, exitY, exitW, exitH);
+}
+
+void printExitH() {
+  fill(exitHo);
+  rect(exitX, exitY, exitW, exitH);
+}
+
 void printPB() {
   fill(playB);
   rect(soundConX1, soundConY1, soundConW1, soundConH1);
@@ -103,8 +113,14 @@ void printShuffleH() {
   triangle(shuffleX1245t, shuffleY4t, shuffleX1245t, shuffleY5t, shuffleX36t, shuffleY6t);
 }
 
-void buttonColours() {
+void printStatics() {
+  fill(islandC);
+  rect(topIslandX, topIslandY, topIslandW, topIslandH);
+}
+
+void UILogic() {
   background(BG);
+  printStatics();
   if (soundConX1 < mouseX && soundConX1 + soundConW1 > mouseX && soundConY1 < mouseY && soundConY1 + soundConH1 > mouseY) {
     mouseHoveredPB = true;
     printPB();
@@ -135,12 +151,18 @@ void buttonColours() {
     mouseHoveredLB = false;
     printLBH();
   }
-
   if (soundConX5 < mouseX && soundConX5 + soundConW5 > mouseX && soundConY5 < mouseY && soundConY5 + soundConH5 > mouseY) {
     mouseHoveredSB = true;
     printShuffle();
   } else {
-    printShuffleH();
     mouseHoveredSB = false;
+    printShuffleH();
+  }
+  if (exitX < mouseX && exitX + exitW > mouseX && exitY < mouseY && exitY + exitH > mouseY) {
+    mouseHoveredE = true;
+    printExitH();
+  } else {
+    mouseHoveredE = false;
+    printExit();
   }
 }

@@ -14,6 +14,8 @@ Minim minim;
 //
 // VARS Initiation
 int screenWidth, screenHeight;
+float topIslandX, topIslandY, topIslandW, topIslandH;
+float exitX, exitY, exitW, exitH;
 float soundConX1, soundConX2, soundConX3, soundConX4, soundConX5;
 float soundConY1, soundConY2, soundConY3, soundConY4, soundConY5;
 float soundConW1, soundConW2, soundConW3, soundConW4, soundConW5;
@@ -30,6 +32,8 @@ float shuffleX1245t, shuffleY1t, shuffleY2t, shuffleX36t, shuffleY3t, shuffleY4t
 //
 // Colour Initiation
 color BG, clear;
+color exitButtonC, exitButtonCH;
+color exitButtonCN, exitButtonCHN;
 color playButtonBox, playButtonTri, playButtonBoxH, playButtonTriH;
 color playButtonBoxN, playButtonTriN, playButtonBoxHN, playButtonTriHN;
 color pauseButtonBox, pauseButtonRec, pauseButtonBoxH, pauseButtonRecH;
@@ -41,9 +45,10 @@ color lastButtonBoxN, lastButtonTriN, lastButtonRecN, lastButtonBoxHN, lastButto
 color shuffleBox, shuffleTri, shuffleBoxH, shuffleTriH;
 color shuffleBoxN, shuffleTriN, shuffleBoxHN, shuffleTriHN;
 color playB, playT, playBH, playTH, pauseB, pauseR, pauseBH, pauseRH, nextB, nextT, nextR, nextBH, nextTH, nextRH;
-color shuffleB, shuffleT, shuffleBH, shuffleTH, lastB, lastT, lastR, lastBH, lastTH, lastRH;
+color shuffleB, shuffleT, shuffleBH, shuffleTH, lastB, lastT, lastR, lastBH, lastTH, lastRH, exit, exitHo;
 color textSong, textArtist;
-boolean mouseHoveredPB, mouseHoveredPaB, mouseHoveredNB, mouseHoveredLB, mouseHoveredSB;
+color islandC, albumColour;
+boolean mouseHoveredPB, mouseHoveredPaB, mouseHoveredNB, mouseHoveredLB, mouseHoveredSB, mouseHoveredE;
 boolean nightToggle;
 // Music Initiation
 int musicSongs = 3;
@@ -97,7 +102,7 @@ void setup() {
 }
 
 void draw() {
-  buttonColours();
+  UILogic();
   printText();
   printAlbumC();
 }
@@ -122,6 +127,9 @@ void mousePressed() {
   if (mouseHoveredSB == true) {
     shufflePlaylist();
     coverLogic();
+  }
+  if (mouseHoveredE == true) {
+    quitProgram();
   }
 }
 

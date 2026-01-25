@@ -1,6 +1,14 @@
 void divisionDeclaration() {
   screenWidth = displayWidth;
   screenHeight = displayHeight;
+  topIslandX = 0;
+  topIslandY = 0;
+  topIslandW = screenWidth;
+  topIslandH = screenWidth * 1/18;
+  exitX = screenWidth * 19/20;
+  exitY = 0;
+  exitW = screenWidth * 1/18;
+  exitH = screenWidth * 1/18;
   soundConX1 = screenWidth * 13/36 + 2;
   soundConX2 = screenWidth * 15/36 + 1;
   soundConX3 = screenWidth * 17/36;
@@ -87,10 +95,19 @@ void colourPop() {
   color lGray = #D6D6D6;
   color gray = #B9B9B9;
   color dGray = #484848;
+  color xGray = #151515;
+  // Definite Colours
   BG = black;
   clear = white;
   textSong = red;
   textArtist = mDarkRed;
+  islandC = xGray;
+  albumColour = darkRed;
+  // Dependant Colours
+  exitButtonC = white;
+  exitButtonCH = red;
+  exitButtonCN = white;
+  exitButtonCHN = gray;
   playButtonBox = darkRed;
   playButtonTri = red;
   playButtonBoxH = red;
@@ -164,6 +181,8 @@ void colourPop() {
     lastBH = lastButtonBoxH;
     lastTH  = lastButtonTriH;
     lastRH = lastButtonRecH;
+    exit = exitButtonC;
+    exitHo = exitButtonCH;
   } else {
     playB  = playButtonBoxN;
     playT  = playButtonTriN;
@@ -189,5 +208,7 @@ void colourPop() {
     lastBH = lastButtonBoxHN;
     lastTH  = lastButtonTriHN;
     lastRH = lastButtonRecHN;
+    exit = exitButtonCN;
+    exitHo = exitButtonCHN;
   }
 } // End colourPop

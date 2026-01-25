@@ -89,6 +89,7 @@ void shufflePlaylist() {
   random = (songList[0] == optionsList[1] && songList[1] == optionsList[0]) ? 2 : 0;
   songList[2] = optionsList[random];
   //
+  populateMetaData();
+ //
   songList[songDetermined].play();
-
 }
