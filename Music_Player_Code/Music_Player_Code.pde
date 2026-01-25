@@ -54,13 +54,17 @@ AudioPlayer[] SFXList = new AudioPlayer[SFX];
 int lastWaitPeriod;
 // Text Initiation
 int stringsPresent = 2;
+int infoBlurbs = 3;
 float[] stringLocX = new float[stringsPresent];
 float[] stringLocY = new float[stringsPresent];
 float[] stringLocW = new float[stringsPresent];
 float[] stringLocH = new float[stringsPresent];
 String fontChosen;
 float trebuchetAR;
-float[] fontSize = new float[stringsPresent];
+float textWidthDecrease;
+float trebuchetFontHard;
+PFont[] text = new PFont [infoBlurbs];
+float[] fontSize = new float[infoBlurbs];
 String[] textStrings = new String[stringsPresent];
 AudioMetaData[] songData = new AudioMetaData[musicSongs];
 // Image Divs and Vars Initiation
@@ -68,8 +72,9 @@ float imageRectX;
 float imageRectY;
 float imageRectWidth;
 float imageRectHeight;
-float centerAdjustment;
 int imageCount = 3;
+float[] centerAdjustment = new float[imageCount];
+AudioPlayer[] referenceSong = new AudioPlayer[musicSongs]; // Array created in order to check for which image to display in order to account for songList shuffling
 float[] imageWidthAdapt = new float[imageCount];
 float[] imageHeightAdapt = new float[imageCount];
 PImage[] imageSelected = new PImage[imageCount];
@@ -86,30 +91,37 @@ void setup() {
   printButtons();
   loadMusic();
   textStartUp();
+  populateMetaData();
   loadImages();
+  coverLogic();
 }
 
 void draw() {
   buttonColours();
   printText();
-  coverLogic();
+  printAlbumC();
 }
 
 void mousePressed() {
   if (mouseHoveredPB == true) {
     playMusic();
+    coverLogic();
   }
   if (mouseHoveredPaB == true) {
     pauseMusic();
+    coverLogic();
   }
   if (mouseHoveredNB == true) {
     nextSong();
+    coverLogic();
   }
   if (mouseHoveredLB == true) {
     lastSong();
+    coverLogic();
   }
   if (mouseHoveredSB == true) {
     shufflePlaylist();
+    coverLogic();
   }
 }
 

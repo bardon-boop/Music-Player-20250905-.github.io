@@ -27,27 +27,24 @@ void loadImages() {
       quitProgram();
     }
   }
-  hardImageStatsW[0] = 322;
-  hardImageStatsH[0] = 181;
-  hardImageStatsW[1] = 276;
-  hardImageStatsH[1] = 184;
+  hardImageStatsW[0] = 1280;
+  hardImageStatsH[0] = 1280;
+  hardImageStatsW[1] = 1024;
+  hardImageStatsH[1] = 682;
   hardImageStatsW[2] = 1280;
   hardImageStatsH[2] = 808;
   determineAR();
 }
 
 void coverLogic() {
-  if (songList[songDetermined] == minim.loadFile("../music/Satin Sugar - Huma-Huma.mp3")) {
+  if (songList[songDetermined] == referenceSong[0]) {
     imageIndex = 2;
-    printAlbumC();
   }
-  if (songList[songDetermined] == minim.loadFile("../music/Eureka.mp3")) {
+  if (songList[songDetermined] == referenceSong[1]) {
     imageIndex = 1;
-    printAlbumC();
   }
-  if (songList[songDetermined] == minim.loadFile("../music/On The Flip - The Grey Room _ Density & Time.mp3")) {
+  if (songList[songDetermined] == referenceSong[2]) {
     imageIndex = 0;
-    printAlbumC();
   }
 }
 
@@ -60,13 +57,13 @@ void determineAR() {
       //println("Image does not fit within the parameters of the division frame, Program end ... Issue must be resolved... Image failed to appear");
       int timesRan = 0; //Local Variable to IF-Statement
       //** WHILE Loops can run indefinitely with an error if not controlled, ensure that as a while loop is performed, it approaches the satisfacation of its condition
-      while ( imageHeightAdapt[x]>imageRectHeight ) {
+      while ( imageHeightAdapt[x]>imageRectHeight) {
         println("Iterations of divsion correction program:", timesRan++);
         if ( timesRan < 10000 ) {
           // Checking Image Size
           imageWidthAdapt[x] *= 0.81; // -= 1;
           imageHeightAdapt[x] = imageWidthAdapt[x] * imageRAspectRatio_LesserOne;
-          println("Image size % decrease recorded:", imageWidthAdapt[x], imageHeightAdapt[x], hardImageStatsH[x]);
+          //println("Image size % decrease recorded:", imageWidthAdapt[x], imageHeightAdapt[x], hardImageStatsH[x]);
         } else {
           //ERROR: Infinite Loop
           println("WHILE condition is not being satisfied, resolve image correction program");
@@ -80,16 +77,16 @@ void determineAR() {
         imageWidthAdapt[x] += imageRectWidth - imageWidthAdapt[x];
       }
     }
-    centerAdjustment = (imageRectHeight-imageHeightAdapt[x] > 0) ? float(1)/float(2) * (imageRectHeight-imageHeightAdapt[x]) : float(1)/float(2) * (imageRectWidth-imageWidthAdapt[x]);
-    println(imageWidthAdapt[x], imageHeightAdapt[x]);
+    centerAdjustment[x] = (imageRectHeight-imageHeightAdapt[x] > 0) ? float(1)/float(2) * (imageRectHeight-imageHeightAdapt[x]) : float(1)/float(2) * (imageRectWidth-imageWidthAdapt[x]);
+    //println(imageWidthAdapt[x], imageHeightAdapt[x]);
   }
 }
 
 void printAlbumC() {
   rect(imageRectX, imageRectY, imageRectWidth, imageRectHeight);
   if (imageRectHeight-imageHeightAdapt[imageIndex] > 0) {
-    image( imageSelected[imageIndex], imageRectX, imageRectY + centerAdjustment, imageWidthAdapt[imageIndex], imageHeightAdapt[imageIndex]); //For centring on the y-axis
+    image( imageSelected[imageIndex], imageRectX, imageRectY + centerAdjustment[imageIndex], imageWidthAdapt[imageIndex], imageHeightAdapt[imageIndex]); //For centring on the y-axis
   } else {
-    image( imageSelected[imageIndex], imageRectX  + centerAdjustment, imageRectY, imageWidthAdapt[imageIndex], imageHeightAdapt[imageIndex]); //For centring on the x-axis
+    image( imageSelected[imageIndex], imageRectX  + centerAdjustment[imageIndex], imageRectY, imageWidthAdapt[imageIndex], imageHeightAdapt[imageIndex]); //For centring on the x-axis
   }
 }

@@ -17,7 +17,7 @@ void loadMusic() {
   for (int i = 0; i <= 2; i++) {
     sPathway = fileBack + musicFolder + songFile[i] + FileExt; //Concatenation
     //println(sPathway);
-    songList[i] = minim.loadFile(sPathway);
+    songList[i] = referenceSong[i] = minim.loadFile(sPathway);
     if (songList[i] == null) {
       println("Null Check on songList failed");
       quitProgram();
