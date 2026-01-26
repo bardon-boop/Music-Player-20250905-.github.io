@@ -15,13 +15,19 @@ void toggleNightM() {
 } // End toggleNightM
 
 void printExit() {
+  textSize(32);
   fill(exit);
   rect(exitX, exitY, exitW, exitH);
+  fill(0);
+  text("X", exitX + exitW * 1/2 - 16, exitY + exitH * 1/2 + 16);
 }
 
 void printExitH() {
+  textSize(32);
   fill(exitHo);
   rect(exitX, exitY, exitW, exitH);
+  fill(0);
+  text("X", exitX + exitW * 1/2 - 16, exitY + exitH * 1/2 + 16);
 }
 
 void printPB() {

@@ -45,6 +45,9 @@ void printText() {
     textStrings[0] = songData[songDetermined].fileName();
   }
   textStrings[1] = songData[songDetermined].author();
+    if (textStrings[1] == "") {
+    textStrings[1] = "No Data";
+  }
   for (int i = 0; i < 2; i++) {
     fill((i == 0) ? textSong : textArtist);
     textFont(text[i], fontSize[i]);

@@ -30,8 +30,8 @@ void loadMusic() {
     if (SFXList[i] == null) {
       println("Null Check on SFXList failed");
     }
-    printArray(songList);
-    populateMetaData();
+   // printArray(songList);
+   // populateMetaData();
   }
   //  printArray(songList);
   //  printArray(SFXList);
@@ -57,6 +57,8 @@ void nextSong() {
 } // End nextSong
 
 void lastSong() {
+  //
+  // Note: restarts song instead unless you are 3 seconds or less into a song, similar to a lot of new music players
   if (songList[songDetermined].position() < lastWaitPeriod) {
     songList[songDetermined].rewind();
     songList[songDetermined].pause();

@@ -141,6 +141,11 @@ void keyPressed() {
   if (key == 'x') {
     quitProgram();
   }
+  if (key == 'p') playMusic(); coverLogic();
+  if (key == 'o') pauseMusic(); coverLogic();
+  if (key == 'n') nextSong(); coverLogic();
+  if (key == 'b') lastSong(); coverLogic();
+  if (key == 's') shufflePlaylist(); coverLogic();
 } //End keyPressed
 
 void quitProgram() {
