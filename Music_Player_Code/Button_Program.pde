@@ -4,7 +4,7 @@ void printButtons() {
   printNB();
   printLB();
   printShuffle();
-}
+} // End printButtons
 
 void toggleNightM() {
   if (nightToggle == true) {
@@ -12,7 +12,7 @@ void toggleNightM() {
   } else {
     nightToggle = true;
   }
-}
+} // End toggleNightM
 
 void printExit() {
   fill(exit);
@@ -29,13 +29,13 @@ void printPB() {
   rect(soundConX1, soundConY1, soundConW1, soundConH1);
   fill(playT);
   triangle(playButtonX13, playButtonY1, playButtonX2, playButtonY2, playButtonX13, playButtonY3);
-}
+} // End printPB
 void printPBH() {
   fill(playBH);
   rect(soundConX1, soundConY1, soundConW1, soundConH1);
   fill(playTH);
   triangle(playButtonX13, playButtonY1, playButtonX2, playButtonY2, playButtonX13, playButtonY3);
-}
+} // End printPBH
 
 void printPaB() {
   fill(pauseB);
@@ -43,14 +43,14 @@ void printPaB() {
   fill(pauseR);
   rect(pause1ButtonX, pause1ButtonY, pause1ButtonWidth, pause1ButtonHeight);
   rect(pause2ButtonX, pause2ButtonY, pause2ButtonWidth, pause2ButtonHeight);
-}
+} // End printPaB
 void printPaBH() {
   fill(pauseBH);
   rect(soundConX2, soundConY2, soundConW2, soundConH2);
   fill(pauseRH);
   rect(pause1ButtonX, pause1ButtonY, pause1ButtonWidth, pause1ButtonHeight);
   rect(pause2ButtonX, pause2ButtonY, pause2ButtonWidth, pause2ButtonHeight);
-}
+} // End printPaBH
 
 void printNB() {
   fill(nextB);
@@ -59,7 +59,7 @@ void printNB() {
   rect(nextSongX, nextSongY, nextSongWid, nextSongHi);
   fill(nextT);
   triangle(nextSongX13t, nextSongY1t, nextSongX2t, nextSongY2t, nextSongX13t, nextSongY3t);
-}
+} // End printNB
 void printNBH() {
   fill(nextBH);
   rect(soundConX3, soundConY3, soundConW3, soundConH3);
@@ -67,7 +67,7 @@ void printNBH() {
   rect(nextSongX, nextSongY, nextSongWid, nextSongHi);
   fill(nextTH);
   triangle(nextSongX13t, nextSongY1t, nextSongX2t, nextSongY2t, nextSongX13t, nextSongY3t);
-}
+} // End printNBH
 
 void printLB() {
   fill(lastB);
@@ -76,7 +76,7 @@ void printLB() {
   triangle(lastSongX13t, lastSongY1t, lastSongX2t, lastSongY2t, lastSongX13t, lastSongY3t); //last song button
   fill(lastR);
   rect(lastSongX, lastSongY, lastSongWid, lastSongHi); //last song button
-}
+} // End printLB
 void printLBH() {
   fill(lastBH);
   rect(soundConX4, soundConY4, soundConW4, soundConH4);
@@ -84,7 +84,7 @@ void printLBH() {
   triangle(lastSongX13t, lastSongY1t, lastSongX2t, lastSongY2t, lastSongX13t, lastSongY3t); //last song button
   fill(lastRH);
   rect(lastSongX, lastSongY, lastSongWid, lastSongHi); //last song button
-}
+} // End printLBH
 
 void printShuffle() {
   fill(shuffleB);
@@ -98,7 +98,7 @@ void printShuffle() {
   fill(shuffleT);
   triangle(shuffleX1245t, shuffleY1t, shuffleX1245t, shuffleY2t, shuffleX36t, shuffleY3t);
   triangle(shuffleX1245t, shuffleY4t, shuffleX1245t, shuffleY5t, shuffleX36t, shuffleY6t);
-}
+} // End printShuffle
 void printShuffleH() {
   fill(shuffleBH);
   rect(soundConX5, soundConY5, soundConW5, soundConH5);
@@ -111,12 +111,12 @@ void printShuffleH() {
   fill(shuffleTH);
   triangle(shuffleX1245t, shuffleY1t, shuffleX1245t, shuffleY2t, shuffleX36t, shuffleY3t);
   triangle(shuffleX1245t, shuffleY4t, shuffleX1245t, shuffleY5t, shuffleX36t, shuffleY6t);
-}
+} // End printShuffleH
 
 void printStatics() {
   fill(islandC);
   rect(topIslandX, topIslandY, topIslandW, topIslandH);
-}
+} // End printStatics
 
 void UILogic() {
   background(BG);
@@ -165,4 +165,4 @@ void UILogic() {
     mouseHoveredE = false;
     printExit();
   }
-}
+} // End UILogic

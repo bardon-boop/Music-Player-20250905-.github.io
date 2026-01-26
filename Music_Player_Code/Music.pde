@@ -35,15 +35,15 @@ void loadMusic() {
   }
   //  printArray(songList);
   //  printArray(SFXList);
-}
+} // End loadMusic
 
 void playMusic() {
   songList[songDetermined].play();
-}
+} //End playMusic
 
 void pauseMusic() {
   songList[songDetermined].pause();
-}
+} // End pauseMusic
 
 void nextSong() {
   songList[songDetermined].rewind();
@@ -54,7 +54,7 @@ void nextSong() {
     songDetermined = 0;
   }
   songList[songDetermined].play();
-}
+} // End nextSong
 
 void lastSong() {
   if (songList[songDetermined].position() < lastWaitPeriod) {
@@ -69,7 +69,7 @@ void lastSong() {
   } else {
     songList[songDetermined].rewind();
   }
-}
+} // End lastSong
 
 void shufflePlaylist() {
   AudioPlayer optionsList[] = new AudioPlayer[musicSongs];
@@ -92,4 +92,4 @@ void shufflePlaylist() {
   populateMetaData();
  //
   songList[songDetermined].play();
-}
+} // End shufflePlaylist

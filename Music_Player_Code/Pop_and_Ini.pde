@@ -84,7 +84,7 @@ void divisionDeclaration() {
   shuffleY4t = soundConY5 + soundConH5 * 9/16;
   shuffleY5t = soundConY5 + soundConH5 * 11/16;
   shuffleY6t = soundConY5 + soundConH5 * 5/8;
-}
+} // End divisionDeclaration
 
 void colourPop() {
   color black = #000000;

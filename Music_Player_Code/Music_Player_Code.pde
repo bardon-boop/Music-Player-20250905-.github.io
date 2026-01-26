@@ -99,13 +99,13 @@ void setup() {
   populateMetaData();
   loadImages();
   coverLogic();
-}
+} // End setup
 
 void draw() {
   UILogic();
   printText();
   printAlbumC();
-}
+} // End draw
 
 void mousePressed() {
   if (mouseHoveredPB == true) {
@@ -131,7 +131,7 @@ void mousePressed() {
   if (mouseHoveredE == true) {
     quitProgram();
   }
-}
+} // End mousePressed
 
 void keyPressed() {
   if (key == 'z') {
@@ -141,9 +141,9 @@ void keyPressed() {
   if (key == 'x') {
     quitProgram();
   }
-}
+} //End keyPressed
 
 void quitProgram() {
   noLoop();
   exit();
-}
+} // End Program

@@ -18,10 +18,10 @@ void textStartUp() {
   textWidthDecrease = 0.95; //5% derease
   trebuchetFontHard = 64.0;
   trebuchetAR = trebuchetFontHard / stringLocH[0];
-  }
+} // End textStartUp
 
 void textSizing() {
-    textStrings[0] = songData[songDetermined].title();
+  textStrings[0] = songData[songDetermined].title();
   if (textStrings[0] == "") {
     textStrings[0] = songData[songDetermined].fileName();
   }
@@ -36,7 +36,7 @@ void textSizing() {
       textFont(text[i], fontSize[i]);
     } //End While error check text-wrap
   }
-}
+} //End textSizing
 
 void printText() {
   textSizing();
@@ -51,4 +51,4 @@ void printText() {
     text(textStrings[i], stringLocX[i], stringLocY[i], stringLocW[i], stringLocH[i]);
     //println(stringLocX[i], stringLocY[i], stringLocW[i], stringLocH[i]); //Checking each box's parameters
   } //End FOR Loop, Font Size Check in DIVs
-}
+} // End printText

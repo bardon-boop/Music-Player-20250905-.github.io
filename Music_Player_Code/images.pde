@@ -34,7 +34,7 @@ void loadImages() {
   hardImageStatsW[2] = 1280;
   hardImageStatsH[2] = 808;
   determineAR();
-}
+} // End loadImages
 
 void coverLogic() {
   if (songList[songDetermined] == referenceSong[0]) {
@@ -46,7 +46,7 @@ void coverLogic() {
   if (songList[songDetermined] == referenceSong[2]) {
     imageIndex = 0;
   }
-}
+} // End coverLogic
 
 void determineAR() {
   for (int x = 0; x < imageCount; x++) {
@@ -80,7 +80,7 @@ void determineAR() {
     centerAdjustment[x] = (imageRectHeight-imageHeightAdapt[x] > 0) ? float(1)/float(2) * (imageRectHeight-imageHeightAdapt[x]) : float(1)/float(2) * (imageRectWidth-imageWidthAdapt[x]);
     //println(imageWidthAdapt[x], imageHeightAdapt[x]);
   }
-}
+} // End determineAR
 
 void printAlbumC() {
   fill(albumColour);
@@ -91,4 +91,4 @@ void printAlbumC() {
     image( imageSelected[imageIndex], imageRectX  + centerAdjustment[imageIndex], imageRectY, imageWidthAdapt[imageIndex], imageHeightAdapt[imageIndex]); //For centring on the x-axis
   }
   fill(clear);
-}
+} // End printAlbumC

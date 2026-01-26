@@ -11,4 +11,4 @@ void populateMetaData() {
       quitProgram();
     }
   }
-}
+} // End populateMetaData
