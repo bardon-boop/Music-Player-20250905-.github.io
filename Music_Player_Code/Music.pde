@@ -30,18 +30,26 @@ void loadMusic() {
     if (SFXList[i] == null) {
       println("Null Check on SFXList failed");
     }
-   // printArray(songList);
-   // populateMetaData();
+    // printArray(songList);
+    // populateMetaData();
   }
   //  printArray(songList);
   //  printArray(SFXList);
 } // End loadMusic
 
 void playMusic() {
+  playStopTog = true;
   songList[songDetermined].play();
 } //End playMusic
 
+void stopMusic() {
+  playStopTog = false;
+  songList[songDetermined].rewind();
+  songList[songDetermined].pause();
+}
+
 void pauseMusic() {
+  playStopTog = false;
   songList[songDetermined].pause();
 } // End pauseMusic
 
@@ -53,13 +61,14 @@ void nextSong() {
   } else {
     songDetermined = 0;
   }
+  playStopTog = true;
   songList[songDetermined].play();
 } // End nextSong
 
 void lastSong() {
   //
   // Note: restarts song instead unless you are 3 seconds or less into a song, similar to a lot of new music players
-  if (songList[songDetermined].position() < lastWaitPeriod) {
+  if (songList[songDetermined].position() < songList[songDetermined].length() * 1/8) {
     songList[songDetermined].rewind();
     songList[songDetermined].pause();
     if (!(songDetermined == 0)) {
@@ -67,6 +76,7 @@ void lastSong() {
     } else {
       songDetermined = 2;
     }
+    playStopTog = true;
     songList[songDetermined].play();
   } else {
     songList[songDetermined].rewind();
@@ -92,6 +102,7 @@ void shufflePlaylist() {
   songList[2] = optionsList[random];
   //
   populateMetaData();
- //
+  //
+  playStopTog = true;
   songList[songDetermined].play();
 } // End shufflePlaylist

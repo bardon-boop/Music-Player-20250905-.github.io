@@ -21,6 +21,7 @@ float soundConY1, soundConY2, soundConY3, soundConY4, soundConY5;
 float soundConW1, soundConW2, soundConW3, soundConW4, soundConW5;
 float soundConH1, soundConH2, soundConH3, soundConH4, soundConH5;
 float playButtonX13, playButtonX2, playButtonY1, playButtonY2, playButtonY3;
+float stopButtonX, stopButtonY, stopButtonW, stopButtonH;
 float pause1ButtonX, pause1ButtonY, pause1ButtonWidth, pause1ButtonHeight;
 float pause2ButtonX, pause2ButtonY, pause2ButtonWidth, pause2ButtonHeight;
 float nextSongX13t, nextSongX2t, nextSongY1t, nextSongY2t, nextSongY3t;
@@ -36,6 +37,8 @@ color exitButtonC, exitButtonCH;
 color exitButtonCN, exitButtonCHN;
 color playButtonBox, playButtonTri, playButtonBoxH, playButtonTriH;
 color playButtonBoxN, playButtonTriN, playButtonBoxHN, playButtonTriHN;
+color stopButtonBox, stopButtonRec, stopButtonBoxH, stopButtonRecH;
+color stopButtonBoxN, stopButtonRecN, stopButtonBoxHN, stopButtonRecHN;
 color pauseButtonBox, pauseButtonRec, pauseButtonBoxH, pauseButtonRecH;
 color pauseButtonBoxN, pauseButtonRecN, pauseButtonBoxHN, pauseButtonRecHN;
 color nextButtonBox, nextButtonTri, nextButtonRec, nextButtonBoxH, nextButtonTriH, nextButtonRecH;
@@ -44,12 +47,13 @@ color lastButtonBox, lastButtonTri, lastButtonRec, lastButtonBoxH, lastButtonTri
 color lastButtonBoxN, lastButtonTriN, lastButtonRecN, lastButtonBoxHN, lastButtonTriHN, lastButtonRecHN;
 color shuffleBox, shuffleTri, shuffleBoxH, shuffleTriH;
 color shuffleBoxN, shuffleTriN, shuffleBoxHN, shuffleTriHN;
-color playB, playT, playBH, playTH, pauseB, pauseR, pauseBH, pauseRH, nextB, nextT, nextR, nextBH, nextTH, nextRH;
+color playB, playT, playBH, playTH, stopB, stopR, stopBH, stopRH, pauseB, pauseR, pauseBH, pauseRH, nextB, nextT, nextR, nextBH, nextTH, nextRH;
 color shuffleB, shuffleT, shuffleBH, shuffleTH, lastB, lastT, lastR, lastBH, lastTH, lastRH, exit, exitHo;
 color textSong, textArtist;
 color islandC, albumColour;
 boolean mouseHoveredPB, mouseHoveredPaB, mouseHoveredNB, mouseHoveredLB, mouseHoveredSB, mouseHoveredE;
 boolean nightToggle;
+boolean playStopTog;
 // Music Initiation
 int musicSongs = 3;
 int SFX = 2;
@@ -109,12 +113,14 @@ void draw() {
 
 void mousePressed() {
   if (mouseHoveredPB == true) {
-    playMusic();
-    coverLogic();
+    if (playStopTog == false) {
+      playMusic();
+    } else {
+      stopMusic();
+    }
   }
   if (mouseHoveredPaB == true) {
     pauseMusic();
-    coverLogic();
   }
   if (mouseHoveredNB == true) {
     nextSong();
@@ -141,11 +147,16 @@ void keyPressed() {
   if (key == 'x') {
     quitProgram();
   }
-  if (key == 'p') playMusic(); coverLogic();
-  if (key == 'o') pauseMusic(); coverLogic();
-  if (key == 'n') nextSong(); coverLogic();
-  if (key == 'b') lastSong(); coverLogic();
-  if (key == 's') shufflePlaylist(); coverLogic();
+  if (key == 'p') playMusic();
+  if (key == 'o') pauseMusic();
+  if (key == 'n') nextSong();
+  coverLogic();
+  if (key == 'b') lastSong();
+  coverLogic();
+  if (key == 's') shufflePlaylist();
+  coverLogic();
+  if (key == 't') stopMusic();
+  coverLogic();
 } //End keyPressed
 
 void quitProgram() {

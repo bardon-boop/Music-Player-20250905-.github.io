@@ -4,6 +4,8 @@ void printButtons() {
   printNB();
   printLB();
   printShuffle();
+  printStB();
+  playStopTog = false;
 } // End printButtons
 
 void toggleNightM() {
@@ -20,15 +22,14 @@ void printExit() {
   rect(exitX, exitY, exitW, exitH);
   fill(0);
   text("X", exitX + exitW * 1/2 - 16, exitY + exitH * 1/2 + 16);
-}
-
+} // End printExit
 void printExitH() {
   textSize(32);
   fill(exitHo);
   rect(exitX, exitY, exitW, exitH);
   fill(0);
   text("X", exitX + exitW * 1/2 - 16, exitY + exitH * 1/2 + 16);
-}
+} // End printExitH
 
 void printPB() {
   fill(playB);
@@ -42,6 +43,19 @@ void printPBH() {
   fill(playTH);
   triangle(playButtonX13, playButtonY1, playButtonX2, playButtonY2, playButtonX13, playButtonY3);
 } // End printPBH
+
+void printStB() {
+  fill(stopB);
+  rect(soundConX1, soundConY1, soundConW1, soundConH1);
+  fill(stopR);
+  rect(stopButtonX, stopButtonY, stopButtonW, stopButtonH);
+}
+void printStBH() {
+  fill(stopBH);
+  rect(soundConX1, soundConY1, soundConW1, soundConH1);
+  fill(stopRH);
+  rect(stopButtonX, stopButtonY, stopButtonW, stopButtonH);
+}
 
 void printPaB() {
   fill(pauseB);
@@ -129,10 +143,18 @@ void UILogic() {
   printStatics();
   if (soundConX1 < mouseX && soundConX1 + soundConW1 > mouseX && soundConY1 < mouseY && soundConY1 + soundConH1 > mouseY) {
     mouseHoveredPB = true;
-    printPB();
+    if (playStopTog == false) {
+      printPB();
+    } else {
+      printStB();
+    }
   } else {
     mouseHoveredPB = false;
-    printPBH();
+    if (playStopTog == false) {
+      printPBH();
+    } else {
+      printStBH();
+    }
   }
   if (soundConX2 < mouseX && soundConX2 + soundConW2 > mouseX && soundConY2 < mouseY && soundConY2 + soundConH2 > mouseY) {
     mouseHoveredPaB = true;
