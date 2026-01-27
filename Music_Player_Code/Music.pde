@@ -3,7 +3,6 @@ void loadMusic() {
   String fileBack = "../";
   String musicFolder = "Music/";
   songDetermined = 0;
-  lastWaitPeriod = 3000;
   String[] songFile = new String[musicSongs];
   songFile[0] = "Satin Sugar - Huma-Huma";
   songFile[1] = "Eureka";
@@ -46,7 +45,7 @@ void stopMusic() {
   playStopTog = false;
   songList[songDetermined].rewind();
   songList[songDetermined].pause();
-}
+} // End stopMusic
 
 void pauseMusic() {
   playStopTog = false;

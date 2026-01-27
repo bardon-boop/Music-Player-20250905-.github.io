@@ -49,13 +49,13 @@ void printStB() {
   rect(soundConX1, soundConY1, soundConW1, soundConH1);
   fill(stopR);
   rect(stopButtonX, stopButtonY, stopButtonW, stopButtonH);
-}
+} // End printStB
 void printStBH() {
   fill(stopBH);
   rect(soundConX1, soundConY1, soundConW1, soundConH1);
   fill(stopRH);
   rect(stopButtonX, stopButtonY, stopButtonW, stopButtonH);
-}
+} // End printStBH
 
 void printPaB() {
   fill(pauseB);

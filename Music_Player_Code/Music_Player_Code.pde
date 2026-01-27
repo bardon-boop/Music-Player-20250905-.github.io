@@ -60,7 +60,6 @@ int SFX = 2;
 int songDetermined;
 AudioPlayer[] songList = new AudioPlayer[musicSongs];
 AudioPlayer[] SFXList = new AudioPlayer[SFX];
-int lastWaitPeriod;
 // Text Initiation
 int stringsPresent = 2;
 int infoBlurbs = 3;
