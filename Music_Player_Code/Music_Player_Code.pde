@@ -92,10 +92,10 @@ int imageIndex;
 //
 void setup() {
   fullScreen();
+  background(BG);
   divisionDeclaration();
   loadImages();
   colourPop();
-  background(BG);
   printButtons();
   loadMusic();
   textStartUp();
@@ -146,16 +146,21 @@ void keyPressed() {
   if (key == 'x') {
     quitProgram();
   }
-  if (key == 'p') playMusic();
-  if (key == 'o') pauseMusic();
-  if (key == 'n') nextSong();
+  if (key == 'P' || key == 'p') playMusic();
+  if (key == 'O' || key == 'o') pauseMusic();
+  if (key == 'N' || key == 'n') nextSong();
   coverLogic();
-  if (key == 'b') lastSong();
+  if (key == 'B' || key == 'b') lastSong();
   coverLogic();
-  if (key == 's') shufflePlaylist();
+  if (key == 'S' || key == 's') shufflePlaylist();
   coverLogic();
-  if (key == 't') stopMusic();
+  if (key == 'T' || key == 't') stopMusic();
   coverLogic();
+  if ( key=='L' || key=='l' ) loopMusic1();
+  if ( key=='K' || key=='k' ) loopMusicI();
+  if ( key=='F' || key=='f' ) skipMusicF();
+  if ( key=='R' || key=='r' ) skipMusicB();
+  if ( key=='W' || key=='w' ) muteMusic();
 } //End keyPressed
 
 void quitProgram() {

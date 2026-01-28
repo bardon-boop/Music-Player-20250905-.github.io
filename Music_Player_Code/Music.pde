@@ -105,3 +105,34 @@ void shufflePlaylist() {
   playStopTog = true;
   songList[songDetermined].play();
 } // End shufflePlaylist
+
+void loopMusic1() {
+  songList[songDetermined].loop(1);
+} // End loopMusicO
+
+void loopMusicI() {
+  songList[songDetermined].loop();
+} // End loopMusicI
+
+void skipMusicF() {
+  songList[songDetermined].loop(5000);
+} // End loopMusicI
+
+void skipMusicB() {
+  songList[songDetermined].loop(-5000);
+} // End skipMusicB
+
+void muteMusic() {
+  //MUTE Behaviour: stops electricty to speakers, does not stop file
+  //NOTE: MUTE has NO built-in PUASE button, NO built-in rewind button
+  //ERROR: if song near end of file, user will not know song is at the end
+  //Known ERROR: once song plays, MUTE acts like it doesn't work
+  if ( songList[songDetermined].isMuted() ) {
+    //ERROR: song might not be playing
+    //CATCH: ask .isPlaying() or !.isPlaying()
+    songList[songDetermined].unmute();
+  } else {
+    //Possible ERROR: Might rewind the song
+    songList[songDetermined].mute();
+  }
+} // End muteMusic
